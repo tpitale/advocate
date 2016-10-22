@@ -1,28 +1,60 @@
 <div class="profile-container">
-  <%= form_for @client, url: users_interaction_client_path do |f| %>
+  <%= form_for [:users, @interaction, @client] do |f| %>
     <div class="profile-top">
-      <%= f.text_field :name, @client.name %>
-      <%= f.submit "Submit" %>
+      <div>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </div>
+      <div>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </div>
+      <div>
+        <%= f.label :last_address %>
+        <%= f.text_field :last_address %>
+      </div>
+      <div>
+        <%= f.label :phone %>
+        <%= f.phone_field :phone %>
+      </div>
+      <div>
+        <%= f.label :gender %>
+        <%= f.text_field :gender %>
+      </div>
+      <div>
+        <%= f.label :ssn %>
+        <%= f.text_field :ssn %>
+      </div>
+      <div>
+        <%= f.label :ethnicity %>
+        <%= f.text_field :ethnicity %>
+      </div>
+      <div>
+        <%= f.label :education %>
+        <%= f.text_field :education %>
+      </div>
+      <div>
+        <%= f.label :employed %>
+        <%= f.check_box :employed %>
+      </div>
+      <div>
+        <%= f.label :veteran %>
+        <%= f.check_box :veteran %>
+      </div>
+      <div>
+        <%= f.label :domestic_assault_victim %>
+        <%= f.check_box :domestic_assault_victim %>
+      </div>
+      <div>
+        <%= f.label :mental_health %>
+        <%= f.check_box :mental_health %>
+      </div>
+      <div>
+        <%= f.label :kid_count %>
+        <%= f.number_field :kid_count %>
+      </div>
 
-<!--       t.text     "phone",                   null: false
-      t.text     "first_name"
-      t.text     "last_name"
-      t.text     "last_address"
-      t.text     "gender"
-      t.text     "ssn"
-      t.text     "ethnicity"
-      t.text     "education"
-      t.boolean  "employed"
-      t.boolean  "veteran"
-      t.boolean  "domestic_assault_victim"
-      t.boolean  "mental_health"
-      t.integer  "kid_count"
-      t.date     "birthdate"
- -->
-      <p class="name">John Doe</p>
-      <p class="top-field">10/04/1988</p>
-      <p class="top-field">Male | White</p>
-      <p class="top-field">(516) 581-1375</p>
+      <%= f.submit "Submit" %>
     </div>
   <% end %>
 </div>
