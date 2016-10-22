@@ -14,3 +14,8 @@
 //= require phoenix_socket
 //= require socket
 //= require selectize
+//= require form_listeners
+
+$(document).on('ready', function(event) {
+  formListeners.init()
+})
