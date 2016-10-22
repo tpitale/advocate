@@ -10,12 +10,37 @@ class Event < ActiveRecord::Base
 
   def save
     super.tap do |result|
-      queue_for_outbound if result
+      queue_for_outbound if result && deliver?
     end
   end
 
   private
+  def deliver?
+    # outbound if user_id is set
+    # outbound if sms reply
+    user_id.present? && source_type == "sms"
+  end
+
+  def client
+    interaction.client
+  end
+
   def queue_for_outbound
     # send to twilio
+    # HACK
+    # Not resilient to Twilio outages
+    # Thread.new do
+      tw = Twilio::REST::Client.new(TWILIO_ACCOUNT_ID, TWILIO_AUTH_TOKEN)
+
+      begin
+        tw.messages.create({
+          from: TWILIO_PHONE_NUMBER,
+          to: client.phone,
+          body: content
+        })
+      rescue Twilio::REST::RequestError => e
+        p e.message
+      end
+    # end
   end
 end
