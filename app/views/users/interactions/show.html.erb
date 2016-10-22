@@ -1,12 +1,26 @@
-<div class="container-left">
-  <%= form_for [:users, @interaction, @event] do |f| %>
-    <%= f.hidden_field :interaction_id %>
-    <%= f.hidden_field :user_id %>
-    <%= f.hidden_field :source_type, value: 'sms' %>
+<script type="text/javascript">
+  $(function() {
+    $("form.new_event input[type='submit']").click(function(e){
+      var replyBody = $("textarea#event_content").val();
+      if (0 === replyBody.length) {
+        e.preventDefault();
+        alert("You must enter a reply.")
+      }
+    })
+  })
+</script>
 
-    <%= f.text_area :content %>
-    <%= f.submit "Reply" %>
-  <% end %>
+<div class="container-left">
+  <div class="provider-form">
+    <%= form_for [:users, @interaction, @event] do |f| %>
+      <%= f.hidden_field :interaction_id %>
+      <%= f.hidden_field :user_id %>
+      <%= f.hidden_field :source_type, value: 'sms' %>
+
+      <%= f.text_area :content %>
+      <%= f.submit "Reply" %>
+    <% end %>
+  </div>
 
   <%= render partial: "sms_messages" %>
 </div>
