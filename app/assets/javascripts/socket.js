@@ -28,12 +28,12 @@ $(function() {
 
   // replace interactions with socket registered in user_socket in bridge
   // if needed pass ID along to channel call with socket.channel('requests:request_id')
-  channel = socket.channel("interactions:1", {});
+  channel = socket.channel("interactions", {});
 
   channel.join().receive("ok", function(resp) {
     console.log("Joined successfully: " + resp);
   }).receive("error", function(resp) {
-    console.log("Unable to join: " + resp);
+    console.log("Unable to join: " + resp.reason);
   }).after(10000, function() {
     console.log("Connection interruption");
   });
