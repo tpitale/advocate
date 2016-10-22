@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20161022134459) do
   add_index "client_locations", ["client_id"], name: "index_client_locations_on_client_id", using: :btree
 
   create_table "clients", force: :cascade do |t|
-    t.text     "phone"
+    t.text     "phone",                   null: false
     t.text     "first_name"
     t.text     "last_name"
     t.text     "last_address"
@@ -49,18 +49,20 @@ ActiveRecord::Schema.define(version: 20161022134459) do
     t.datetime "updated_at",              null: false
   end
 
-  add_index "clients", ["phone"], name: "index_clients_on_phone", using: :btree
+  add_index "clients", ["phone"], name: "index_clients_on_phone", unique: true, using: :btree
 
   create_table "events", force: :cascade do |t|
     t.integer  "interaction_id", null: false
     t.integer  "user_id"
     t.text     "source_type"
+    t.text     "message_id"
     t.text     "content"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
   end
 
   add_index "events", ["interaction_id"], name: "index_events_on_interaction_id", using: :btree
+  add_index "events", ["message_id"], name: "index_events_on_message_id", unique: true, using: :btree
   add_index "events", ["user_id"], name: "index_events_on_user_id", using: :btree
 
   create_table "interactions", force: :cascade do |t|
