@@ -18,7 +18,7 @@ module Users
     end
 
     def create
-      @interaction = Interaction.create_for_phone(params[:interaction][:phone])
+      @interaction = Interaction.create(params[:interaction].permit(:phone).merge(status: "open", user: current_user))
 
       respond_with @interaction, location: [:users, @interaction]
     end
