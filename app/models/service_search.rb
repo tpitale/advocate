@@ -18,7 +18,7 @@ class ServiceSearch
   end
 
   def client
-    @client ||= @interaction.client
+    @client ||= interaction.client
   end
 
   def conditions
