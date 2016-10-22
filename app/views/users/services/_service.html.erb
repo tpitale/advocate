@@ -1,0 +1,51 @@
+<div class="provider-container">
+  <div class="provider-left">
+    <p class="provider-name"><%= service.provider.name %></p>
+    <div class="provider-sub-details">
+      <a href="#" class='provider-phone'><i class="fa fa-phone"></i><%= service.provider.phone %></a>
+
+      <% if service.provider.website.present? %>
+        <a href="#" class='provider-site'><i class="fa fa-globe"></i><%= service.provider.website %></a>
+      <% end %>
+    </div>
+
+    <div class="provider-service">
+      <p class="service-name">Emergency Shelter</p>
+      <% if service.male? %>
+        <p class="service-restriction"><i class="fa fa-male"></i>Male Only</p>
+      <% end %>
+      <% if service.ssn? %>
+        <p class="service-restriction"><i class="fa fa-hashtag"></i>SSN Required</p>
+      <% end %>
+      <% if service.female? %>
+        <p class="service-restriction"><i class="fa fa-female"></i>Female Only</p>
+      <% end %>
+      <% if service.family? %>
+        <p class="service-restriction"><i class="fa fa-child"></i>Family</p>
+      <% end %>
+      <% if service.sober? %>
+        <p class="service-restriction"><i class="fa fa-medkit"></i>Sober Residents Only</p>
+      <% end %>
+
+    </div>
+
+    <% if service.provider.services.count > 1 %>
+      <div class="provider-addtl-services">
+        <p class="service-name"><span class="addtl-services-title">Additional Services:</span> <%= (service.provider.services.map(&:name) - [service.name]).join(", ") %></p>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="provider-right">
+    <div class="provider-map-container">
+      <div class='provider-map-canvas' data-lat="<%= service.provider.latitude %>" data-lon="<%= service.provider.longitude %>"></div>
+      <p class="provider-addy"><%= service.provider.full_address %></p>
+    </div>
+  </div>
+
+  <div class="clear"></div>
+  <div class="provider-btns">
+    <%= link_to "refer client", new_users_referral_path(service_id: service.id, interaction_id: params[:interaction_id]), class: "c-btn" %>
+  </div>
+
+</div>
