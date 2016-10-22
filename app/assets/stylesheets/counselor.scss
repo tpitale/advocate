@@ -4,6 +4,8 @@ $MedGray: #5b5b62;
 $LightGray: #f4f4f5;
 $teal: #3cc6cc;
 $blue: #00315b;
+$red: #D62828;
+$green: #70d474;
 
 h1,h2,h3 {
   font-family: 'Oxygen', sans-serif; // header
@@ -22,6 +24,10 @@ body{  background-color: $LightGray; margin: 0; padding: 0;}
   display: inline-block; text-transform: uppercase;
   text-decoration: none; color: $DarkGray;
   &:hover{ border-color: $MedGray; color: $MedGray; }
+  &.disabled {
+    background-color: $LightGray; color: $MedGray;
+    pointer-events: none; cursor: default;
+  }
 }
 
 #header{
@@ -146,8 +152,8 @@ body{  background-color: $LightGray; margin: 0; padding: 0;}
         text-align:center; display:inline-block;
 
         &.fa-plus { color: #4e98d5;}
-        &.fa-user { color: #D62828;}
-        &.fa-comments { color: #70d474;}
+        &.fa-user { color: $red;}
+        &.fa-comments { color: $green;}
         &.fa-phone { color: #5693ca;}
       }
 
@@ -207,6 +213,15 @@ body{  background-color: $LightGray; margin: 0; padding: 0;}
 
   .provider-container{
     padding: 15px; border: 1px solid $DarkGray; margin-bottom: 30px;
+
+    .qualified {
+      width: 90%; padding: 10px 5%;  background-color: $green;
+      i {margin-right: 8px;}
+    }
+    .disqualified {
+      width: 90%; padding: 10px 5%;  background-color: $red;
+      i {margin-right: 8px;}
+    }
 
     .provider-left {width: 60%; display: inline-block; vertical-align: top;}
     .provider-right {width: 40%; display: inline-block; vertical-align: top; float: right;}
