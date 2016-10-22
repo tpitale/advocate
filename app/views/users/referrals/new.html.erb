@@ -1,0 +1,9 @@
+<%= form_for [:users, @referral] do |f| %>
+  <h1>Referral code: <%= @referral.code %></h1>
+
+  <%= f.hidden_field :code %>
+  <%= f.hidden_field :interaction_id %>
+  <%= f.hidden_field :service_id %>
+
+  <%= f.submit "Create" %>
+<% end %>
