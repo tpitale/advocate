@@ -249,3 +249,22 @@ body{  background-color: $LightGray; margin: 0; padding: 0;}
   }
   .msg-sep{margin-bottom: 10px; clear: both;}
 }
+
+
+.interactions-container{
+  width: 100%;
+  .interaction-section-header {font-size: 25px;}
+  .interaction-container{
+    margin-bottom: 30px;
+    &:hover {outline: 1px solid $MedGray;}
+    a {text-decoration: none; display: block;}
+    padding: 15px; background-color: white;
+    p, span{color: $DarkGray;}
+
+    .client-name {font-weight: bold; margin: 0; font-size: 28px;}
+    .interaction-data {
+      .title {font-weight: bold; margin-right: 10px; width: 100px; }
+      i{width: 20px; margin-right: 5px;}
+    }
+  }
+}
