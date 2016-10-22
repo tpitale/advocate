@@ -1,4 +1,5 @@
 class Interaction < ActiveRecord::Base
+  has_many :events
 
   belongs_to :client
 
