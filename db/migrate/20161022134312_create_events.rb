@@ -5,6 +5,7 @@ class CreateEvents < ActiveRecord::Migration
       t.belongs_to :user, null: true
 
       t.text :source_type # sms, phone, inperson
+      t.text :message_id # twilio id
       t.text :content # our note, or the sms message
 
       t.timestamps null: false
@@ -12,5 +13,6 @@ class CreateEvents < ActiveRecord::Migration
 
     add_index :events, :interaction_id
     add_index :events, :user_id
+    add_index :events, :message_id, unique: true
   end
 end
