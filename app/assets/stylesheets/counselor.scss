@@ -25,7 +25,7 @@
 
 $DarkGray: #32323c;
 $MedGray: #5b5b62;
-$LightGray: #c1c1c4;
+$LightGray: #f4f4f5;
 $teal: #3cc6cc;
 $blue: #00315b;
 
@@ -34,7 +34,7 @@ p,h1,h2,h3,a, span, div,input, textarea  {
   font-family: 'GT-Walsheim', serif;
 }
 
-body{ background-color: $LightGray; }
+body{  background-color: $LightGray; margin: 0; padding: 0;}
 
 .clear {clear: both;}
 
@@ -45,8 +45,36 @@ body{ background-color: $LightGray; }
   &:hover{ border-color: $MedGray; color: $MedGray; }
 }
 
+#header{
+  height: 50px; width: 100%; position: fixed; top: 0; left: 0;
+  background-color: white; z-index: 1;
+  -webkit-box-shadow: 0px 4px 9px 0px rgba(50,50,60,0.1);
+  -moz-box-shadow: 0px 4px 9px 0px rgba(50,50,60,0.1);
+  box-shadow: 0px 4px 9px 0px rgba(50,50,60,0.1);
+  .inner-header { width: 90%; margin: 0 auto;}
+  #header-home-link {
+    line-height: 50px; font-size: 20px; color: $DarkGray;
+  }
+}
+
+
+.page-container{
+  width: 90%; margin: 50px auto 0 auto; max-width: 1050px;
+  padding-top: 50px;
+
+  .container-left{
+    width: 48%; margin-right: 1%; display: inline-block; vertical-align: top;
+  }
+  .container-right{
+    width: 48%; display: inline-block; vertical-align: top;
+  }
+  .container-center{
+    width: 90%; margin: 0 auto;
+  }
+}
+
+
 .profile-container{
-  width: 500px; //fixed for UI standup purposes
   padding: 15px; background-color: white;
   p {margin: 0;}
   .name { font-size: 28px; margin-bottom: 10px;}
@@ -57,77 +85,78 @@ body{ background-color: $LightGray; }
     .field-title {width: 150px; color: $MedGray; display: inline-block;}
   }
 
-}
 
-.timeline-container{
-  width: 500px; //fixed for UI standup purposes
-  padding: 15px; background-color: white;
+  .timeline-container{
+    .new-note-btn{ text-decoration: none; }
 
-  .new-note-btn{ text-decoration: none; }
+    .timeline-item{
+      padding-bottom: 20px; position: relative;
+      &:last-of-type { padding-bottom: 0; }
+      .timeline-icon{
+        color: $teal; background-color: white; position: relative;
+        padding: 0; border-radius: 50%; margin-right: 10px;
+        border: 1px solid $MedGray; vertical-align: top;
+        font-size: 30px; height: 50px; width: 50px; line-height: 50px;
+        text-align:center; display:inline-block;
 
-  .timeline-item{
-    padding-bottom: 20px; position: relative;
-    &:last-of-type { padding-bottom: 0; }
-    .timeline-icon{
-      color: $teal; background-color: white; position: relative;
-      padding: 0; border-radius: 50%; margin-right: 10px;
-      border: 1px solid $MedGray; vertical-align: top;
-      font-size: 30px; height: 50px; width: 50px; line-height: 50px;
-      text-align:center; display:inline-block;
-
-      &.fa-plus { color: #4e98d5;}
-      &.fa-user { color: #D62828;}
-      &.fa-comments { color: #70d474;}
-      &.fa-phone { color: #5693ca;}
-    }
-
-    .vert-line {
-      height: 100%; width: 1px; display: block; background-color: $DarkGray;
-      position: absolute; left: 25px; z-index: 0;
-    }
-
-    .timeline-text-container{
-      display: inline-block; width: calc(100% - 70px);
-
-      .interaction-status {
-        float: right; vertical-align: top; margin: 10px 0 0 0; color: $MedGray;
-        font-size: 11px;
-        .resolution-icon{
-          font-size: 14px; height: 24px; width: 24px;
-        }
-        &.resolved{ color: green; }
-        &.open { color: red; }
+        &.fa-plus { color: #4e98d5;}
+        &.fa-user { color: #D62828;}
+        &.fa-comments { color: #70d474;}
+        &.fa-phone { color: #5693ca;}
       }
 
-      .timeline-main-text{
-        text-decoration: none;
-        color: $DarkGray;
-        margin-top: 10px; display: inline-block;
+      .vert-line {
+        height: 100%; width: 1px; display: block; background-color: $DarkGray;
+        position: absolute; left: 25px; z-index: 0;
       }
-      .timeline-sub-text{
-        text-decoration: none; font-size: 10px;
-        color: $MedGray; vertical-align: bottom;
-        display: block; margin-bottom: 10px;
-      }
-      .timeline-desc{ }
-      .referral-container {
-        p {margin: 0;}
-        background-color: rgba(127, 196, 253, .5); padding: 15px;
-        display: block; margin-top: 15px;
-        .referral-title { margin-bottom: 5px; font-size: 14px;}
-        .referral-note { margin: 0; font-size: 11px;}
-        .referral-code { margin: 0; font-size: 11px;
-          .code-title {width: 50px; display: inline-block;}
+
+      .timeline-text-container{
+        display: inline-block; width: calc(100% - 70px);
+
+        .interaction-status {
+          float: right; vertical-align: top; margin: 10px 0 0 0; color: $MedGray;
+          font-size: 11px;
+          .resolution-icon{
+            font-size: 14px; height: 24px; width: 24px;
+          }
+          &.resolved{ color: green; }
+          &.open { color: red; }
         }
 
-        .ref-btns{ margin-top: 10px; }
+        .timeline-main-text{
+          text-decoration: none;
+          color: $DarkGray;
+          margin-top: 10px; display: inline-block;
+        }
+        .timeline-sub-text{
+          text-decoration: none; font-size: 10px;
+          color: $MedGray; vertical-align: bottom;
+          display: block; margin-bottom: 10px;
+        }
+        .timeline-desc{ }
+        .referral-container {
+          p {margin: 0;}
+          background-color: rgba(127, 196, 253, .5); padding: 15px;
+          display: block; margin-top: 15px;
+          .referral-title { margin-bottom: 5px; font-size: 14px;}
+          .referral-note { margin: 0; font-size: 11px;}
+          .referral-code { margin: 0; font-size: 11px;
+            .code-title {width: 50px; display: inline-block;}
+          }
+
+          .ref-btns{ margin-top: 10px; }
+        }
       }
     }
   }
 }
 
+.timeline-container{
+  padding: 15px; background-color: white;
+
+}
+
 .providers-container{
-  width: 750px; //fixed for UI standup purposes
   padding: 15px; background-color: white;
 
   .provider-container{
@@ -170,7 +199,7 @@ body{ background-color: $LightGray; }
 }
 
 .messages-container{
-  width: 500px; background-color: white; padding: 15px 30px;
+  background-color: white; padding: 15px 30px;
 
   .incoming-msg-from {float: left; font-size: 12px; margin: 0 0 3px 0; color: $MedGray;}
   .incoming-msg-to {
