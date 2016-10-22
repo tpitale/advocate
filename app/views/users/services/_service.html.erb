@@ -1,4 +1,15 @@
 <div class="provider-container">
+
+  <% if service.disqualified.present? %>
+    <p class="disqualified">
+      <i class="fa fa-times-circle-o"></i><%= service.disqualified %>
+    </p>
+  <% elsif service.qualified.present? %>
+    <p class="qualified">
+      <i class="fa fa-check-circle-o"></i><%= service.qualified %>
+    </p>
+  <% end %>
+
   <div class="provider-left">
     <p class="provider-name"><%= service.provider.name %></p>
     <div class="provider-sub-details">
@@ -10,7 +21,7 @@
     </div>
 
     <div class="provider-service">
-      <p class="service-name">Emergency Shelter</p>
+      <p class="service-name"><%= service.name %></p>
       <% if service.male? %>
         <p class="service-restriction"><i class="fa fa-male"></i>Male Only</p>
       <% end %>
@@ -45,7 +56,7 @@
 
   <div class="clear"></div>
   <div class="provider-btns">
-    <%= link_to "refer client", new_users_referral_path(service_id: service.id, interaction_id: params[:interaction_id]), class: "c-btn" %>
+    <%= link_to "refer client", new_users_referral_path(service_id: service.id, interaction_id: @interaction.id), class: "c-btn #{'disabled' if service.disqualified.present?}" %>
   </div>
 
 </div>

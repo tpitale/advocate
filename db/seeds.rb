@@ -22,3 +22,5 @@ if Service.all.empty?
     Service.create!(service_attributes.merge!(provider_id: provider.id))
   end
 end
+
+Service.where(name: "Food Programs & Pantries").each{|s|s.update_attribute(:name, "Food Programs")}
