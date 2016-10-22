@@ -38,6 +38,6 @@ class Client < ActiveRecord::Base
   end
 
   def last_contacted
-    interactions.map {|i| i.events.last }.max_by(&:created_at).created_at
+    Event.where(interaction: interactions).max_by(&:created_at).created_at
   end
 end
