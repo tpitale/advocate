@@ -11,4 +11,5 @@
 // about supported directives.
 //
 //= require jquery
-//= require .
+//= require phoenix_socket
+//= require socket
