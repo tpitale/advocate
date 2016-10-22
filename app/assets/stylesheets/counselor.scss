@@ -1,27 +1,3 @@
-@font-face {
-  font-family: 'GT-Walsheim';
-  src: font-url('GT-Walsheim-Bold.ttf')  format('truetype'),
-       font-url('GT-Walsheim-Bold.eot')  format('eot'),
-       font-url('GT-Walsheim-Bold.woff')  format('woff');
-  font-weight: bold;
-}
-@font-face {
-  font-family: 'GT-Walsheim';
-  src: font-url('GT-Walsheim-Regular-Oblique.ttf')  format('truetype'),
-       font-url('GT-Walsheim-Regular-Oblique.eot')  format('eot'),
-       font-url('GT-Walsheim-Regular-Oblique.woff')  format('woff');
-  font-style: italic;
-}
-
-
-@font-face {
-  font-family: 'GT-Walsheim';
-  src: font-url('GT-Walsheim-Bold-Oblique.ttf')  format('truetype'),
-       font-url('GT-Walsheim-Bold-Oblique.eot')  format('eot'),
-       font-url('GT-Walsheim-Bold-Oblique.woff')  format('woff');
-  font-weight: bold;
-  font-style: italic;
-}
 
 $DarkGray: #32323c;
 $MedGray: #5b5b62;
@@ -29,9 +5,12 @@ $LightGray: #c1c1c4;
 $teal: #3cc6cc;
 $blue: #00315b;
 
+h1,h2,h3 {
+  font-family: 'Oxygen', sans-serif; // header
+}
 
-p,h1,h2,h3,a, span, div,input, textarea  {
-  font-family: 'GT-Walsheim', serif;
+p,a, span, div, input, textarea  {
+  font-family: 'Source Sans Pro', sans-serif; // body
 }
 
 body{ background-color: $LightGray; }
