@@ -7,6 +7,11 @@
         alert("You must enter a reply.")
       }
     })
+
+    $(".referral-send-container button.send-referral").click(function() {
+      var code = $(this).data("referral-code");
+      $("textarea#event_content").val(code);
+    })
   })
 </script>
 
@@ -18,7 +23,7 @@
       <%= f.hidden_field :source_type, value: 'sms' %>
 
       <%= f.text_area :content %>
-      <%= f.submit "Reply" %>
+      <%= f.submit "Reply", class: "button" %>
     <% end %>
   </div>
 
