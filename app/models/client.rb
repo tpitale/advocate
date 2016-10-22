@@ -22,4 +22,12 @@ class Client < ActiveRecord::Base
   def family?
     kid_count.to_i > 0
   end
+
+  def name
+    "#{first_name} #{last_name}"
+  end
+
+  def formatted_birthdate
+    birthdate.strftime("%B %e, %Y")
+  end
 end

@@ -1,10 +1,10 @@
 <div class="profile-container">
 
   <div class="profile-top">
-    <p class="name">John Doe</p>
-    <p class="top-field">10/04/1988</p>
-    <p class="top-field">Male | White</p>
-    <p class="top-field">(516) 581-1375</p>
+    <p class="name"><%= @client.name %></p>
+    <p class="top-field"><%= @client.formatted_birthdate %></p>
+    <p class="top-field"><%= human_readable_text(@client.gender) %> | <%= human_readable_text(@client.ethnicity) %></p>
+    <p class="top-field"><%= @client.phone %></p>
     <%= link_to "Edit Client", edit_users_interaction_client_path(@interaction, @client) %>
   </div>
 
