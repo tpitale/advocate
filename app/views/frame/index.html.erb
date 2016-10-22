@@ -1,0 +1,118 @@
+<h3>User Profile</h3>
+<hr>
+
+<div class="profile-container">
+
+  <p class="name">John Doe</p>
+  <p class="top-field">10/04/1988</p>
+  <p class="top-field">Male | White</p>
+  <p class="top-field">(516) 581-1375</p>
+  <hr>
+
+  <p class="middle-field"><span class="field-title">Last Contacted:</span> Oct 4 2016 10:20 AM</p>
+  <p class="middle-field"><span class="field-title">Contacted Via:</span> SMS, In-person</p>
+
+  <hr>
+  <p class="middle-field"><span class="field-title">Veteran:</span> Yes</p>
+  <p class="middle-field"><span class="field-title">Domestic Abuse Victim:</span> Yes</p>
+  <p class="middle-field"><span class="field-title">Employed:</span> No</p>
+  <p class="middle-field"><span class="field-title">Education Level:</span> GED</p>
+
+</div>
+
+<h3>Timeline</h3>
+<hr>
+
+<div class="timeline-container">
+
+  <div class="timeline-item">
+    <%= link_to "#", class: "new-note-btn" do %>
+      <i class="timeline-icon fa fa-plus "></i>
+      <div class="timeline-text-container">
+        <span class="timeline-main-text">Create A Note</span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="timeline-item">
+      <div class="vert-line"></div>
+      <i class="timeline-icon fa fa-comments"></i>
+      <div class="timeline-text-container">
+        <p class="interaction-status resolved"><i class="resolution-icon small fa fa-check"></i>Resolved</p>
+
+        <span class="timeline-main-text">SMS Interaction <%#= interaction.type #(on the event though?) %></span>
+        <span class="timeline-sub-text">Oct 20 2016 10:20 AM | Tony Pitale <%#= interaction.created_at.strftime('%e %b %Y %I:%M%p') | interaction.user.first_name interaction.user.last_name %></span>
+        <span class="timeline-desc">Client seeking Housing<%#= interaction.description %></span>
+        <%# if interaction.referral %>
+          <div class="referral-container">
+            <p class="referral-title">Client Referred to St Patricks <%#= interaction.service.provider %> for Housing<%#= interaction.service %></p>
+            <p class="referral-note">Referral Note Here</p>
+            <p class="referral-code"><span class="code-title">Code:</span> 11121</p>
+
+            <div class="ref-btns">
+              <%= link_to "resend", "#", class: "c-btn" %>
+              <%= link_to "mark", "#", class: "c-btn" %>
+            </div>
+          </div>
+        <%# end %>
+      </div>
+  </div>
+
+  <div class="timeline-item">
+      <div class="vert-line"></div>
+      <i class="timeline-icon fa fa-phone "></i>
+      <div class="timeline-text-container">
+        <p class="interaction-status open"><i class="resolution-icon small fa fa-flag"></i>Open</p>
+        <span class="timeline-main-text">Phone Interaction <%#= interaction.type #(on the event though?) %></span>
+        <span class="timeline-sub-text">Oct 20 2016 10:20 AM | Tony Pitale <%#= interaction.created_at.strftime('%e %b %Y %I:%M%p') | interaction.user.first_name interaction.user.last_name %></span>
+        <span class="timeline-desc">Client seeking Housing<%#= interaction.description %></span>
+        <%# if interaction.referral %>
+          <div class="referral-container">
+            <p class="referral-title">Client Referred to St Patricks <%#= interaction.service.provider %> for Housing<%#= interaction.service %></p>
+            <p class="referral-note">Referral Note Here</p>
+            <p class="referral-code"><span class="code-title">Code:</span> 11121</p>
+
+            <div class="ref-btns">
+              <%= link_to "resend", "#", class: "c-btn" %>
+              <%= link_to "mark", "#", class: "c-btn" %>
+            </div>
+          </div>
+        <%# end %>
+      </div>
+  </div>
+
+  <div class="timeline-item">
+      <div class="vert-line"></div>
+      <i class="timeline-icon fa fa-user"></i>
+      <div class="timeline-text-container">
+        <span class="timeline-main-text">In Person Interaction <%#= interaction.type #(on the event though?) %></span>
+        <span class="timeline-sub-text">Oct 20 2016 10:20 AM | Tony Pitale <%#= interaction.created_at.strftime('%e %b %Y %I:%M%p') | interaction.user.first_name interaction.user.last_name %></span>
+        <span class="timeline-desc">Client seeking Housing<%#= interaction.description %></span>
+        <%# if interaction.referral %>
+          <div class="referral-container">
+            <p class="referral-title">Client Referred to St Patricks <%#= interaction.service.provider %> for Housing<%#= interaction.service %></p>
+            <p class="referral-note">Referral Note Here</p>
+            <p class="referral-code"><span class="code-title">Code:</span> 11121</p>
+
+            <div class="ref-btns">
+              <%= link_to "resend", "#", class: "c-btn" %>
+              <%= link_to "mark", "#", class: "c-btn" %>
+            </div>
+          </div>
+        <%# end %>
+      </div>
+  </div>
+
+
+  <div class="timeline-item">
+    <div class="vert-line"></div>
+    <i class="timeline-icon fa fa-map-marker"></i>
+    <div class="timeline-text-container">
+      <span class="timeline-main-text">Client Shared Location <%#= interaction.type #(on the event though?) %></span>
+      <span class="timeline-sub-text">Oct 20 2016 10:20 AM | Tony Pitale <%#= interaction.created_at.strftime('%e %b %Y %I:%M%p') | interaction.user.first_name interaction.user.last_name %></span>
+      <span class="timeline-desc">253 Eckford St, #3B<%#= interaction.description %></span>
+    </div>
+  </div>
+
+
+</div>
