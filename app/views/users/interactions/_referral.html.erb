@@ -1,0 +1,15 @@
+<% if !@interaction.referral %>
+  <div class="referral-start-container">
+    <p>Refer Client To Services:</p>
+    <%= select_tag "author",
+      options_for_select(["Emergency Shelter", "Food Programs & Pantries", "Utility Assistance"]),
+      id: "service-type-search",
+      class: "selectize sans-body",
+      prompt: "Select A Service Type"  %>
+  </div>
+<% else %>
+  <div class="referral-send-container">
+    <p>Refer Client To Services:</p>
+    <button class="send-referral button" data-referral-code="<%= @interaction.referral.code %>"><%= "Send Code #{@interaction.referral.code} to Client" %></button>
+  </div>
+<% end %>
