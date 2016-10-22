@@ -1,0 +1,23 @@
+<div class="timeline-item">
+  <div class="vert-line"></div>
+  <i class="timeline-icon fa <%= icon_class_for_interaction(activity_interaction.type) %>"></i>
+  <div class="timeline-text-container">
+    <p class="interaction-status resolved"><i class="resolution-icon small fa fa-check"></i>Resolved</p>
+
+    <span class="timeline-main-text"><%= type_of_interaction(activity_interaction.type) %></span>
+    <span class="timeline-sub-text"><%= activity_interaction.events.last.created_at.strftime('%e %b %Y %I:%M%p') %></span>
+    <span class="timeline-desc"><%= activity_interaction.description %></span>
+    <% if activity_interaction.referral %>
+      <div class="referral-container">
+        <p class="referral-title">Client Referred to St Patricks <%#= interaction.service.provider %> for Housing<%#= interaction.service %></p>
+        <p class="referral-note">Referral Note Here</p>
+        <p class="referral-code"><span class="code-title">Code:</span> 11121</p>
+
+        <div class="ref-btns">
+          <%= link_to "resend", "#", class: "c-btn" %>
+          <%= link_to "mark", "#", class: "c-btn" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

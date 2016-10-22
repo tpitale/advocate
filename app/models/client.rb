@@ -1,6 +1,8 @@
 class Client < ActiveRecord::Base
   validates :phone, presence: true, uniqueness: true
 
+  has_many :interactions
+
   def self.with_phone(search)
     normalized_phone = search.length == 10 ? "+1"+search : search
 
