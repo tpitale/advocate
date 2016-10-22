@@ -1,0 +1,226 @@
+<h3>User Profile</h3>
+<hr>
+
+<div class="profile-container">
+
+  <p class="name">John Doe</p>
+  <p class="top-field">10/04/1988</p>
+  <p class="top-field">Male | White</p>
+  <p class="top-field">(516) 581-1375</p>
+  <hr>
+
+  <p class="middle-field"><span class="field-title">Last Contacted:</span> Oct 4 2016 10:20 AM</p>
+  <p class="middle-field"><span class="field-title">Contacted Via:</span> SMS, In-person</p>
+
+  <hr>
+  <p class="middle-field"><span class="field-title">Veteran:</span> Yes</p>
+  <p class="middle-field"><span class="field-title">Domestic Abuse Victim:</span> Yes</p>
+  <p class="middle-field"><span class="field-title">Employed:</span> No</p>
+  <p class="middle-field"><span class="field-title">Education Level:</span> GED</p>
+
+</div>
+
+<h3>Timeline</h3>
+<hr>
+
+<div class="timeline-container">
+
+  <div class="timeline-item">
+    <%= link_to "#", class: "new-note-btn" do %>
+      <i class="timeline-icon fa fa-plus "></i>
+      <div class="timeline-text-container">
+        <span class="timeline-main-text">Create A Note</span>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="timeline-item">
+      <div class="vert-line"></div>
+      <i class="timeline-icon fa fa-comments"></i>
+      <div class="timeline-text-container">
+        <p class="interaction-status resolved"><i class="resolution-icon small fa fa-check"></i>Resolved</p>
+
+        <span class="timeline-main-text">SMS Interaction <%#= interaction.type #(on the event though?) %></span>
+        <span class="timeline-sub-text">Oct 20 2016 10:20 AM | Tony Pitale <%#= interaction.created_at.strftime('%e %b %Y %I:%M%p') | interaction.user.first_name interaction.user.last_name %></span>
+        <span class="timeline-desc">Client seeking Housing<%#= interaction.description %></span>
+        <%# if interaction.referral %>
+          <div class="referral-container">
+            <p class="referral-title">Client Referred to St Patricks <%#= interaction.service.provider %> for Housing<%#= interaction.service %></p>
+            <p class="referral-note">Referral Note Here</p>
+            <p class="referral-code"><span class="code-title">Code:</span> 11121</p>
+
+            <div class="ref-btns">
+              <%= link_to "resend", "#", class: "c-btn" %>
+              <%= link_to "mark", "#", class: "c-btn" %>
+            </div>
+          </div>
+        <%# end %>
+      </div>
+  </div>
+
+  <div class="timeline-item">
+      <div class="vert-line"></div>
+      <i class="timeline-icon fa fa-phone "></i>
+      <div class="timeline-text-container">
+        <p class="interaction-status open"><i class="resolution-icon small fa fa-flag"></i>Open</p>
+        <span class="timeline-main-text">Phone Interaction <%#= interaction.type #(on the event though?) %></span>
+        <span class="timeline-sub-text">Oct 20 2016 10:20 AM | Tony Pitale <%#= interaction.created_at.strftime('%e %b %Y %I:%M%p') | interaction.user.first_name interaction.user.last_name %></span>
+        <span class="timeline-desc">Client seeking Housing<%#= interaction.description %></span>
+        <%# if interaction.referral %>
+          <div class="referral-container">
+            <p class="referral-title">Client Referred to St Patricks <%#= interaction.service.provider %> for Housing<%#= interaction.service %></p>
+            <p class="referral-note">Referral Note Here</p>
+            <p class="referral-code"><span class="code-title">Code:</span> 11121</p>
+
+            <div class="ref-btns">
+              <%= link_to "resend", "#", class: "c-btn" %>
+              <%= link_to "mark", "#", class: "c-btn" %>
+            </div>
+          </div>
+        <%# end %>
+      </div>
+  </div>
+
+  <div class="timeline-item">
+      <div class="vert-line"></div>
+      <i class="timeline-icon fa fa-user"></i>
+      <div class="timeline-text-container">
+        <span class="timeline-main-text">In Person Interaction <%#= interaction.type #(on the event though?) %></span>
+        <span class="timeline-sub-text">Oct 20 2016 10:20 AM | Tony Pitale <%#= interaction.created_at.strftime('%e %b %Y %I:%M%p') | interaction.user.first_name interaction.user.last_name %></span>
+        <span class="timeline-desc">Client seeking Housing<%#= interaction.description %></span>
+        <%# if interaction.referral %>
+          <div class="referral-container">
+            <p class="referral-title">Client Referred to St Patricks <%#= interaction.service.provider %> for Housing<%#= interaction.service %></p>
+            <p class="referral-note">Referral Note Here</p>
+            <p class="referral-code"><span class="code-title">Code:</span> 11121</p>
+
+            <div class="ref-btns">
+              <%= link_to "resend", "#", class: "c-btn" %>
+              <%= link_to "mark", "#", class: "c-btn" %>
+            </div>
+          </div>
+        <%# end %>
+      </div>
+  </div>
+
+
+  <div class="timeline-item">
+    <div class="vert-line"></div>
+    <i class="timeline-icon fa fa-map-marker"></i>
+    <div class="timeline-text-container">
+      <span class="timeline-main-text">Client Shared Location <%#= interaction.type #(on the event though?) %></span>
+      <span class="timeline-sub-text">Oct 20 2016 10:20 AM | Tony Pitale <%#= interaction.created_at.strftime('%e %b %Y %I:%M%p') | interaction.user.first_name interaction.user.last_name %></span>
+      <span class="timeline-desc">253 Eckford St, #3B<%#= interaction.description %></span>
+    </div>
+  </div>
+
+
+</div>
+
+<h3>Provider Listings</h3>
+
+<div class="providers-container">
+  <div class="provider-container">
+    <div class="provider-left">
+      <p class="provider-name">St Patrick's Center</p>
+      <div class="provider-sub-details">
+        <a href="#" class='provider-phone'><i class="fa fa-phone"></i>516 581-1375</a>
+        <a href="#" class='provider-site'><i class="fa fa-globe"></i>www.test.com</a>
+      </div>
+
+      <div class="provider-service">
+        <p class="service-name">Emergency Shelter</p>
+        <p class="service-restriction"><i class="fa fa-male"></i>Male Only</p>
+        <p class="service-restriction"><i class="fa fa-hashtag"></i>SSN Required</p>
+        <p class="service-restriction"><i class="fa fa-female"></i>Female Only</p>
+        <p class="service-restriction"><i class="fa fa-child"></i>Family</p>
+      </div>
+
+      <div class="provider-addtl-services">
+        <p class="service-name"><span class="addtl-services-title">Additional Services:</span> Food, Utility Services, Legal Help.</p>
+      </div>
+
+    </div>
+
+    <div class="provider-right">
+      <div class="provider-map-container">
+        <div class='provider-map-canvas' data-lat="38.601645" data-lon="-90.458824"></div>
+        <p class="provider-addy">253 Eckford St Brooklyn, NY 11222</p>
+      </div>
+    </div>
+
+    <div class="clear"></div>
+  </div>
+
+
+  <div class="provider-container">
+    <div class="provider-left">
+      <p class="provider-name">St Patrick's Center</p>
+      <div class="provider-sub-details">
+        <a href="#" class='provider-phone'><i class="fa fa-phone"></i>516 581-1375</a>
+        <a href="#" class='provider-site'><i class="fa fa-globe"></i>www.test.com</a>
+      </div>
+
+      <div class="provider-service">
+        <p class="service-name">Emergency Shelter</p>
+        <p class="service-restriction"><i class="fa fa-male"></i>Male Only</p>
+        <p class="service-restriction"><i class="fa fa-hashtag"></i>SSN Required</p>
+        <p class="service-restriction"><i class="fa fa-female"></i>Female Only</p>
+        <p class="service-restriction"><i class="fa fa-child"></i>Family</p>
+      </div>
+
+      <div class="provider-addtl-services">
+        <p class="service-name"><span class="addtl-services-title">Additional Services:</span> Food, Utility Services, Legal Help.</p>
+      </div>
+
+    </div>
+
+    <div class="provider-right">
+      <div class="provider-map-container">
+        <div class='provider-map-canvas' data-lat="18.601645" data-lon="-90.458824"></div>
+        <p class="provider-addy">253 Eckford St Brooklyn, NY 11222</p>
+      </div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="provider-btns">
+      <%= link_to "refer client", "#", class: "c-btn" %>
+    </div>
+  </div>
+
+</div>
+<hr>
+
+<h3>Messages</h3>
+
+<div class="messages-container">
+  <p class="incoming-msg-from">Client 5:03 PM</p><div class="clear"></div>
+  <div class="text-bubble incoming">
+    LETS GOOOOOOO
+  </div>
+  <div class="msg-sep"></div>
+
+  <p class="incoming-msg-to">Tony P. <span class="provider-name">Provider</span> 5:03 PM</p><div class="clear"></div>
+  <div class="text-bubble">
+    YO CHILL
+  </div>
+  <div class="msg-sep"></div>
+
+</div>
+
+<script>
+
+$(document).ready(function(){
+  var styles = [{"featureType":"administrative","elementType":"labels.text.fill","stylers":[{"color":"#444444"}]},{"featureType":"landscape","elementType":"all","stylers":[{"color":"#f2f2f2"}]},{"featureType":"poi","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"road","elementType":"all","stylers":[{"saturation":-100},{"lightness":45}]},{"featureType":"road","elementType":"geometry.fill","stylers":[{"color":"#d1b561"},{"lightness":"-15"},{"weight":"1.39"}]},{"featureType":"road","elementType":"labels.text","stylers":[{"color":"#5c5d5f"},{"weight":"0.48"}]},{"featureType":"road.highway","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.highway.controlled_access","elementType":"geometry.fill","stylers":[{"visibility":"on"}]},{"featureType":"road.highway.controlled_access","elementType":"geometry.stroke","stylers":[{"visibility":"off"}]},{"featureType":"road.arterial","elementType":"labels.icon","stylers":[{"visibility":"off"}]},{"featureType":"transit","elementType":"all","stylers":[{"visibility":"off"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#46bcec"},{"visibility":"on"}]}]
+
+  _.each($('.provider-map-canvas'), function(mapCanvas){
+    var map = new google.maps.Map(mapCanvas, {
+      center: {lat: $(mapCanvas).data('lat'), lng: $(mapCanvas).data('lon')},
+      scrollwheel: false,styles: styles, zoom: 12
+    });
+    var marker = new google.maps.Marker({ position: {lat: $(mapCanvas).data('lat'), lng: $(mapCanvas).data('lon')}, map: map });
+  });
+
+})
+
+</script>
