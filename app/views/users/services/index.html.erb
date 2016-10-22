@@ -1,80 +1,10 @@
 <div class="container-center">
 
   <div class="providers-container">
-    <div class="provider-container">
-      <div class="provider-left">
-        <p class="provider-name">St Patrick's Center</p>
-        <div class="provider-sub-details">
-          <a href="#" class='provider-phone'><i class="fa fa-phone"></i>516 581-1375</a>
-          <a href="#" class='provider-site'><i class="fa fa-globe"></i>www.test.com</a>
-        </div>
-
-        <div class="provider-service">
-          <p class="service-name">Emergency Shelter</p>
-          <p class="service-restriction"><i class="fa fa-male"></i>Male Only</p>
-          <p class="service-restriction"><i class="fa fa-hashtag"></i>SSN Required</p>
-          <p class="service-restriction"><i class="fa fa-female"></i>Female Only</p>
-          <p class="service-restriction"><i class="fa fa-child"></i>Family</p>
-        </div>
-
-        <div class="provider-addtl-services">
-          <p class="service-name"><span class="addtl-services-title">Additional Services:</span> Food, Utility Services, Legal Help.</p>
-        </div>
-
-      </div>
-
-      <div class="provider-right">
-        <div class="provider-map-container">
-          <div class='provider-map-canvas' data-lat="38.601645" data-lon="-90.458824"></div>
-          <p class="provider-addy">253 Eckford St Brooklyn, NY 11222</p>
-        </div>
-      </div>
-
-      <div class="clear"></div>
-      <div class="provider-btns">
-        <%= link_to "refer client", new_users_referral_path(service_id: "1", interaction_id: params[:interaction_id]), class: "c-btn" %>
-      </div>
-
-    </div>
-
-
-    <div class="provider-container">
-      <div class="provider-left">
-        <p class="provider-name">St Patrick's Center</p>
-        <div class="provider-sub-details">
-          <a href="#" class='provider-phone'><i class="fa fa-phone"></i>516 581-1375</a>
-          <a href="#" class='provider-site'><i class="fa fa-globe"></i>www.test.com</a>
-        </div>
-
-        <div class="provider-service">
-          <p class="service-name">Emergency Shelter</p>
-          <p class="service-restriction"><i class="fa fa-male"></i>Male Only</p>
-          <p class="service-restriction"><i class="fa fa-hashtag"></i>SSN Required</p>
-          <p class="service-restriction"><i class="fa fa-female"></i>Female Only</p>
-          <p class="service-restriction"><i class="fa fa-child"></i>Family</p>
-        </div>
-
-        <div class="provider-addtl-services">
-          <p class="service-name"><span class="addtl-services-title">Additional Services:</span> Food, Utility Services, Legal Help.</p>
-        </div>
-
-      </div>
-
-      <div class="provider-right">
-        <div class="provider-map-container">
-          <div class='provider-map-canvas' data-lat="18.601645" data-lon="-90.458824"></div>
-          <p class="provider-addy">253 Eckford St Brooklyn, NY 11222</p>
-        </div>
-      </div>
-      <div class="clear"></div>
-
-      <div class="provider-btns">
-        <%= link_to "refer client", new_users_referral_path(service_id: "1", interaction_id: params[:interaction_id]), class: "c-btn" %>
-      </div>
-    </div>
-
+    <% @services.each do |service| %>
+      <%= render partial: "service", locals: {service: service} %>
+    <% end %>
   </div>
-
 </div>
 <script>
 

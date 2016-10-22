@@ -8,6 +8,16 @@
     <%= link_to "Edit Client", edit_users_interaction_client_path(@interaction, @client) %>
   </div>
 
+
+  <div class="referral-start-container">
+    <p>Refer Client To Services:</p>
+    <%= select_tag "author",
+      options_for_select(["Emergency Shelter", "Food Programs & Pantries", "Utility Assistance"]),
+      id: "service-type-search",
+      class: "selectize sans-body",
+      prompt: "Select A Service Type"  %>
+  </div>
+
   <div id="profile-toggle-container">
     <%= link_to "Activity Log", "#", class: "profile-toggle-btn active", onclick: "$('.profile-toggle-btn').removeClass('active');$(this).addClass('active');$(this).addClass('active'); $('.client-details-container').removeClass('active'); $('.timeline-container').addClass('active'); return false;" %>
     <%= link_to "Client Details", "#", class: "profile-toggle-btn", onclick: "$('.profile-toggle-btn').removeClass('active');$(this).addClass('active');$(this).addClass('active'); $('.timeline-container').removeClass('active'); $('.client-details-container').addClass('active'); return false;"  %>
@@ -117,3 +127,14 @@
   </div>
 
 </div>
+
+<script>
+$(document).ready(function(){
+ $('.selectize').selectize({
+    create          : false,
+    onItemAdd: function(value, $item) {
+      window.location.href = "/users/services?interaction_id=" + "<%=params['id'] %>" + "&service_name=" + value
+    }
+  })
+})
+</script>
