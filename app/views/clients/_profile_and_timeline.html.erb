@@ -31,7 +31,7 @@
     <p class="middle-field"><span class="field-title">Veteran:</span> <%= human_readable_boolean(@client.veteran?) %></p>
     <p class="middle-field"><span class="field-title">Domestic Abuse Victim: </span> <%= human_readable_boolean(@client.domestic_assault_victim?) %></p>
     <p class="middle-field"><span class="field-title">Employed:</span> <%= human_readable_boolean(@client.employed?) %></p>
-    <p class="middle-field"><span class="field-title">Education Level:</span> GED</p>
+    <p class="middle-field"><span class="field-title">Education Level:</span> <%= human_readable_text(@client.education) %></p>
   </div>
 
   <div class="timeline-container active">
