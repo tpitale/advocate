@@ -12,6 +12,10 @@ class Interaction < ActiveRecord::Base
     @phone = client.phone
   end
 
+  def self.recent
+    order("id DESC")
+  end
+
   def self.active_for(user)
     where(["(id IN (?) OR user_id = ?) AND status = ?", Event.interactions_for(user), user.id, "open"])
   end
