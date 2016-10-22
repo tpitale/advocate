@@ -1,0 +1,219 @@
+@font-face {
+  font-family: 'GT-Walsheim';
+  src: font-url('GT-Walsheim-Bold.ttf')  format('truetype'),
+       font-url('GT-Walsheim-Bold.eot')  format('eot'),
+       font-url('GT-Walsheim-Bold.woff')  format('woff');
+  font-weight: bold;
+}
+@font-face {
+  font-family: 'GT-Walsheim';
+  src: font-url('GT-Walsheim-Regular-Oblique.ttf')  format('truetype'),
+       font-url('GT-Walsheim-Regular-Oblique.eot')  format('eot'),
+       font-url('GT-Walsheim-Regular-Oblique.woff')  format('woff');
+  font-style: italic;
+}
+
+
+@font-face {
+  font-family: 'GT-Walsheim';
+  src: font-url('GT-Walsheim-Bold-Oblique.ttf')  format('truetype'),
+       font-url('GT-Walsheim-Bold-Oblique.eot')  format('eot'),
+       font-url('GT-Walsheim-Bold-Oblique.woff')  format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+$DarkGray: #32323c;
+$MedGray: #5b5b62;
+$LightGray: #c1c1c4;
+$teal: #3cc6cc;
+$blue: #00315b;
+
+
+p,h1,h2,h3,a, span, div,input, textarea  {
+  font-family: 'GT-Walsheim', serif;
+}
+
+body{ background-color: $LightGray; }
+
+.clear {clear: both;}
+
+.c-btn{
+  padding: 5px 10px; border: 1px solid $DarkGray;
+  display: inline-block; text-transform: uppercase;
+  text-decoration: none; color: $DarkGray;
+  &:hover{ border-color: $MedGray; color: $MedGray; }
+}
+
+.profile-container{
+  width: 500px; //fixed for UI standup purposes
+  padding: 15px; background-color: white;
+  p {margin: 0;}
+  .name { font-size: 28px; margin-bottom: 10px;}
+  .top-field  { font-size: 14px; margin-bottom: 5px;}
+
+  .middle-field{
+    font-size: 12px;
+    .field-title {width: 150px; color: $MedGray; display: inline-block;}
+  }
+
+}
+
+.timeline-container{
+  width: 500px; //fixed for UI standup purposes
+  padding: 15px; background-color: white;
+
+  .new-note-btn{ text-decoration: none; }
+
+  .timeline-item{
+    padding-bottom: 20px; position: relative;
+    &:last-of-type { padding-bottom: 0; }
+    .timeline-icon{
+      color: $teal; background-color: white; position: relative;
+      padding: 0; border-radius: 50%; margin-right: 10px;
+      border: 1px solid $MedGray; vertical-align: top;
+      font-size: 30px; height: 50px; width: 50px; line-height: 50px;
+      text-align:center; display:inline-block;
+
+      &.fa-plus { color: #4e98d5;}
+      &.fa-user { color: #D62828;}
+      &.fa-comments { color: #70d474;}
+      &.fa-phone { color: #5693ca;}
+    }
+
+    .vert-line {
+      height: 100%; width: 1px; display: block; background-color: $DarkGray;
+      position: absolute; left: 25px; z-index: 0;
+    }
+
+    .timeline-text-container{
+      display: inline-block; width: calc(100% - 70px);
+
+      .interaction-status {
+        float: right; vertical-align: top; margin: 10px 0 0 0; color: $MedGray;
+        font-size: 11px;
+        .resolution-icon{
+          font-size: 14px; height: 24px; width: 24px;
+        }
+        &.resolved{ color: green; }
+        &.open { color: red; }
+      }
+
+      .timeline-main-text{
+        text-decoration: none;
+        color: $DarkGray;
+        margin-top: 10px; display: inline-block;
+      }
+      .timeline-sub-text{
+        text-decoration: none; font-size: 10px;
+        color: $MedGray; vertical-align: bottom;
+        display: block; margin-bottom: 10px;
+      }
+      .timeline-desc{ }
+      .referral-container {
+        p {margin: 0;}
+        background-color: rgba(127, 196, 253, .5); padding: 15px;
+        display: block; margin-top: 15px;
+        .referral-title { margin-bottom: 5px; font-size: 14px;}
+        .referral-note { margin: 0; font-size: 11px;}
+        .referral-code { margin: 0; font-size: 11px;
+          .code-title {width: 50px; display: inline-block;}
+        }
+
+        .ref-btns{ margin-top: 10px; }
+      }
+    }
+  }
+}
+
+.providers-container{
+  width: 750px; //fixed for UI standup purposes
+  padding: 15px; background-color: white;
+
+  .provider-container{
+    padding: 15px; border: 1px solid $DarkGray; margin-bottom: 30px;
+
+    .provider-left {width: 60%; display: inline-block; vertical-align: top;}
+    .provider-right {width: 40%; display: inline-block; vertical-align: top; float: right;}
+    .provider-name {font-size: 24px; display: inline-block; margin: 0;}
+    .provider-sub-details{
+      display: block; width: 350px;
+      .provider-phone, .provider-site {
+        display: inline-block; margin:0; font-size: 12px;
+        width: 150px; color: $DarkGray;
+        i {margin-right: 5px;}
+      }
+    }
+
+    .provider-service{
+      .service-name{ border-bottom: 1px solid $DarkGray; display: inline-block; margin: 10px 0;}
+      .service-restriction{
+        margin: 0 0 3px 0; font-size: 12px; color: $MedGray;
+        i {margin-right: 5px; width: 14px;}
+      }
+    }
+
+    .provider-addtl-services{
+      font-size: 12px;
+      .addtl-services-title {width: 120px; display: inline-block;}
+    }
+
+    .provider-map-container{
+      .provider-map-canvas{ width: 100%; height: 250px; }
+      .provider-addy {margin: 10px 0 0 0; font-size: 12px;}
+    }
+    .provider-btns{
+      margin-top: 25px;
+      text-align: right;
+    }
+  }
+}
+
+.messages-container{
+  width: 500px; background-color: white; padding: 15px 30px;
+
+  .incoming-msg-from {float: left; font-size: 12px; margin: 0 0 3px 0; color: $MedGray;}
+  .incoming-msg-to {
+    float: right; font-size: 12px; margin: 0 0 3px 0; color: $MedGray;
+    .provider-name {font-style: italic;}
+  }
+
+
+  .text-bubble {
+    // http://ilikepixels.co.uk/drop/bubbler/ //
+    position: relative;
+    display: inline-block;
+    padding: 15px; background: #FFFFFF;
+    -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
+    border: #7F7F7F solid 2px;
+    float: right;
+
+    &:before{
+      content: ''; position: absolute; border-style: solid; border-width: 15px 0 15px 15px; border-color: transparent #FFFFFF;
+      display: block;
+      width: 0; z-index: 1; margin-top: -15px;
+      right: -15px; left: initial; top: 50%;
+    }
+    &:after{
+      content: ''; position: absolute; border-style: solid;
+      border-width: 16px 0 16px 16px; border-color: transparent #7F7F7F; display: block;
+      width: 0; z-index: 0; margin-top: -16px; right: -18px;
+      left: initial; top: 50%;
+    }
+
+    &.incoming{
+      float: left;
+      &:after{
+        content: ''; position: absolute; border-style: solid;
+        border-width: 15px 15px 15px 0; border-color: transparent #FFFFFF;
+        display: block; width: 0; z-index: 1; margin-top: -15px; left: -15px; top: 50%;
+      }
+      &:before{
+        content: ''; position: absolute; border-style: solid; border-width: 16px 16px 16px 0; border-color: transparent #7F7F7F;
+        display: block; width: 0; z-index: 0; margin-top: -16px;
+        left: -18px; top: 50%;
+      }
+    }
+  }
+  .msg-sep{margin-bottom: 10px; clear: both;}
+}
