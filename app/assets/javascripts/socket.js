@@ -55,6 +55,8 @@ $(function() {
   // will change to the event in the bridge
   channel.on("event", function(data) {
     console.log(data);
+    var formattedDateTime = moment().format('M/D/Y h:m a');
+    $(".container-left .messages-container").prepend("<p class='incoming-msg-from'>Client " + formattedDateTime + "</p><div class='clear'></div><div class='text-bubble incoming'>" + data.content + "</div><div class='msg-sep'></div>")
   });
 
   channel.on("event2", function(data) {
