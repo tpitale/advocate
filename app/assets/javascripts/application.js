@@ -13,3 +13,4 @@
 //= require jquery
 //= require phoenix_socket
 //= require socket
+//= require selectize
