@@ -24,8 +24,8 @@
   </div>
 
   <div class="client-details-container">
-    <p class="middle-field"><span class="field-title">Last Contacted:</span> Oct 4 2016 10:20 AM</p>
-    <p class="middle-field"><span class="field-title">Contacted Via:</span> SMS, In-person</p>
+    <p class="middle-field"><span class="field-title">Last Contacted:</span> <%= @client.last_contacted.strftime("%m/%d/%Y %l:%M %p") %></p>
+    <p class="middle-field"><span class="field-title">Contacted Via:</span> <%= @client.contact_types %></p>
 
     <hr>
     <p class="middle-field"><span class="field-title">Veteran:</span> <%= human_readable_boolean(@client.veteran?) %></p>
