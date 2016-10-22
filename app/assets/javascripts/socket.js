@@ -28,7 +28,7 @@ $(function() {
 
   // replace interactions with socket registered in user_socket in bridge
   // if needed pass ID along to channel call with socket.channel('requests:request_id')
-  channel = socket.channel("interactions:*", {});
+  channel = socket.channel("interactions:1", {});
 
   channel.join().receive("ok", function(resp) {
     console.log("Joined successfully: " + resp);
@@ -51,7 +51,8 @@ $(function() {
   //
   // https://github.com/tpitale/counselor-bridge/blob/master/web/channels/interactions_channel.ex#L55
   // in our bridge above, "interactions:#{event.interaction_id}" is the socket,
-  // "event" is event and payload is the message. so event2/event3 will change to the event in the bridge
+  // "event" is event and payload is the message. so event2/event3
+  // will change to the event in the bridge
   channel.on("event", function(data) {
     console.log(data);
   });
