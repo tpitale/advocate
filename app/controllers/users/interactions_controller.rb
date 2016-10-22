@@ -10,7 +10,7 @@ module Users
     def show
       @interaction = Interaction.find(params[:id])
       @client = @interaction.client
-      @event = Event.new(interaction: @interaction)
+      @event = Event.new(interaction: @interaction, user: current_user)
     end
 
     def new
