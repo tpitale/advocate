@@ -32,4 +32,12 @@ class Client < ActiveRecord::Base
   def formatted_birthdate
     birthdate.strftime("%B %e, %Y")
   end
+
+  def contact_types
+    interactions.map(&:type).uniq
+  end
+
+  def last_contacted
+    interactions.map {|i| i.events.last }.max_by(&:created_at).created_at
+  end
 end
