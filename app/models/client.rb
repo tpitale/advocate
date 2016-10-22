@@ -30,7 +30,7 @@ class Client < ActiveRecord::Base
   end
 
   def formatted_birthdate
-    birthdate.strftime("%B %e, %Y")
+    birthdate && birthdate.strftime("%B %e, %Y")
   end
 
   def contact_types
