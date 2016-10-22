@@ -1,5 +1,14 @@
 
 <div class="container-left">
+  <%= form_for [:users, @interaction, @event] do |f| %>
+    <%= f.hidden_field :interaction_id %>
+    <%= f.hidden_field :user_id %>
+    <%= f.hidden_field :source_type, value: 'sms' %>
+
+    <%= f.text_area :content %>
+    <%= f.submit "Reply" %>
+  <% end %>
+
   <%= render partial: "sms_messages" %>
 </div>
 
