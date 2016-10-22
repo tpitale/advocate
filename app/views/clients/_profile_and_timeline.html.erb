@@ -6,17 +6,13 @@
     <p class="top-field">Male | White</p>
     <p class="top-field">(516) 581-1375</p>
   </div>
-  <hr>
-  <hr>
-  <hr>
-  <hr>
-  <hr>
-  <hr>
-  <div id="profile-toggle-btns">
 
+  <div id="profile-toggle-container">
+    <%= link_to "Activity Log", "#", class: "profile-toggle-btn active", onclick: "$('.profile-toggle-btn').removeClass('active');$(this).addClass('active');$(this).addClass('active'); $('.client-details-container').removeClass('active'); $('.timeline-container').addClass('active'); return false;" %>
+    <%= link_to "Client Details", "#", class: "profile-toggle-btn", onclick: "$('.profile-toggle-btn').removeClass('active');$(this).addClass('active');$(this).addClass('active'); $('.timeline-container').removeClass('active'); $('.client-details-container').addClass('active'); return false;"  %>
   </div>
 
-  <div class="client-details">
+  <div class="client-details-container">
     <p class="middle-field"><span class="field-title">Last Contacted:</span> Oct 4 2016 10:20 AM</p>
     <p class="middle-field"><span class="field-title">Contacted Via:</span> SMS, In-person</p>
 
@@ -27,7 +23,7 @@
     <p class="middle-field"><span class="field-title">Education Level:</span> GED</p>
   </div>
 
-  <div class="timeline-container">
+  <div class="timeline-container active">
     <div class="timeline-item">
       <%= link_to "#", class: "new-note-btn" do %>
         <i class="timeline-icon fa fa-plus "></i>

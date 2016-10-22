@@ -65,8 +65,32 @@ body{  background-color: $LightGray; margin: 0; padding: 0;}
   }
 
 
+
+  #profile-toggle-container{
+    width: calc(100% + 30px); height: 50px; margin: 10px 0 10px -15px;
+    border-top: 1px solid $LightGray;
+    border-bottom: 1px solid $LightGray;
+    .profile-toggle-btn{
+      width: 50%; display: inline-block; text-decoration: none;
+      float: left; height: 100%; text-align: center; line-height: 50px;
+      background-color: $LightGray; color: $MedGray;
+      &.active{
+        background-color: white; color: $DarkGray;
+      }
+    }
+  }
+  .client-details-container{
+    display: none;
+    &.active{display: block;}
+  }
   .timeline-container{
-    .new-note-btn{ text-decoration: none; }
+    display: none;
+    &.active{display: block;}
+
+    .new-note-btn{
+      text-decoration: none;
+      &:hover {opacity: .75;}
+    }
 
     .timeline-item{
       padding-bottom: 20px; position: relative;
