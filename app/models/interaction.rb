@@ -12,6 +12,22 @@ class Interaction < ActiveRecord::Base
     @phone = client.phone
   end
 
+  def self.no_replies_ids
+    select("interactions.id").
+    joins("LEFT OUTER JOIN events ON interactions.id = events.interaction_id").
+    group("interactions.id").
+    where("events.user_id IS NULL").
+    having("count(events.id) = 0")
+  end
+
+  def self.no_replies
+    where(id: no_replies_ids)
+  end
+
+  def self.no_creator
+    where(user_id: nil)
+  end
+
   def self.recent
     order("id DESC")
   end
