@@ -10,8 +10,6 @@ module Users
           source_type: source_type_from_commit
         })
 
-        # TODO: queue to send SMS via twilio if appropriate
-
         redirect_to [:users, current_interaction]
       end
 
@@ -21,6 +19,7 @@ module Users
       end
       helper_method :current_interaction
 
+      # HACK
       def source_type_from_commit
         case params[:commit].to_s.downcase
         when "reply"
