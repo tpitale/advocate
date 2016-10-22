@@ -1,6 +1,12 @@
 class Client < ActiveRecord::Base
   validates :phone, presence: true, uniqueness: true
 
+  def self.with_phone(search)
+    normalized_phone = search.length == 10 ? "+1"+search : search
+
+    where(phone: normalized_phone).first
+  end
+
   def male?
     ["man", "male", "guy", "dude"].include? gender.to_s.downcase
   end

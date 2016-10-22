@@ -1,30 +1,41 @@
-<div class="interaction-container">
-  <%= link_to users_interaction_path("1") do %>
+<li class="interaction-container">
+  <%= link_to users_interaction_path(interaction) do %>
+    <% client = interaction.client %>
+
+  
     <div class='int-class-left'>
-      <p class="client-name">Client Name</p>
-      <p class="interaction-data">
-        <i class="fa fa-clock-o"></i>
-        <span class="title">Last Contact:</span>
-        Oct 10 2016, 10:32 AM
-      </p>
-      <p class="interaction-data">
-        <i class="fa fa-long-arrow-right"></i>
-        <span class="title">Referred To:</span>
-        St. Patrick Center
-      </p>
-
-      <p class="interaction-data">
-        <i class="fa fa-question"></i>
-        <span class="title">Referred For:</span>
-        Emergency Housing
-      </p>
-
+      <p class="client-name"><%= client.first_name || client.phone %></p>
+      <% if event = interaction.latest_event %>
+        <p class="interaction-data">
+          <i class="fa fa-clock-o"></i>
+          <span class="title">Last Contact:</span>
+          <%= event.created_at.to_s(:db) %>
+        </p>
+      <% else %>
+        <p class="interaction-data">
+          <i class="fa fa-clock-o"></i>
+          <span class="title">Last Contact:</span>
+          <%= interaction.created_at.to_s(:db) %>
+        </p>
+      <% end %>
     </div>
 
     <div class='int-class-right'>
+      <% if referral = interaction.referrals.first %>
+        <p class="interaction-data">
+          <i class="fa fa-long-arrow-right"></i>
+          <span class="title">Referred To:</span>
+          <%= referral.provider_name %>
+        </p>
 
+        <p class="interaction-data">
+          <i class="fa fa-question"></i>
+          <span class="title">Referred For:</span>
+          <%= referral.service_name %>
+        </p>
+      <% end %>
     </div>
 
   <% end %>
 
-</div>
+</li>

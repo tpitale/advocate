@@ -4,7 +4,7 @@ module Users
     respond_to :html
 
     def index
-      @interactions = Interaction.active_for(current_user)
+      @interactions = Interaction.includes(:events).recent.active_for(current_user)
     end
 
     def show
@@ -18,7 +18,7 @@ module Users
     end
 
     def create
-      @interaction = Interaction.create_for_phone(params[:interaction][:phone])
+      @interaction = Interaction.create(params[:interaction].permit(:phone).merge(status: "open", user: current_user))
 
       respond_with @interaction, location: [:users, @interaction]
     end
