@@ -4,7 +4,8 @@ module Users
     respond_to :html
 
     def index
-      @interactions = Interaction.includes(:events).recent.active_for(current_user)
+      @interactions = Interaction.active_for(current_user).recent.includes(:events)
+      @open_interactions = Interaction.no_replies.no_creator.recent.includes(:events)
     end
 
     def show

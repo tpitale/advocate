@@ -1,9 +1,16 @@
 <div class="container-center">
   <%= link_to "New Interaction", new_users_interaction_url %>
 
-  <p class="interaction-section-header">Open</p>
+  <p class="interaction-section-header">Active</p>
   <ul class="interactions-container">
     <% @interactions.each do |interaction| %>
+      <%= render interaction %>
+    <% end %>
+  </ul>
+
+  <p class="interaction-section-header">Open</p>
+  <ul class="interactions-container">
+    <% @open_interactions.each do |interaction| %>
       <%= render interaction %>
     <% end %>
   </ul>
