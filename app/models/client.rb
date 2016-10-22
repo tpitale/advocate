@@ -1,6 +1,8 @@
 class Client < ActiveRecord::Base
   validates :phone, presence: true, uniqueness: true
 
+  has_many :interactions
+
   def self.with_phone(search)
     normalized_phone = search.length == 10 ? "+1"+search : search
 
@@ -21,5 +23,21 @@ class Client < ActiveRecord::Base
 
   def family?
     kid_count.to_i > 0
+  end
+
+  def name
+    "#{first_name} #{last_name}"
+  end
+
+  def formatted_birthdate
+    birthdate.strftime("%B %e, %Y")
+  end
+
+  def contact_types
+    interactions.map(&:type).uniq
+  end
+
+  def last_contacted
+    Event.where(interaction: interactions).max_by(&:created_at).created_at
   end
 end

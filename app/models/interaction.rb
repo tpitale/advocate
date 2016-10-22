@@ -2,6 +2,8 @@ class Interaction < ActiveRecord::Base
   has_many :events
   has_many :referrals # most likely, just one
 
+  has_one :referral
+
   belongs_to :client
   belongs_to :user # created by user
 
@@ -38,5 +40,9 @@ class Interaction < ActiveRecord::Base
 
   def latest_event
     events.order(:created_at).first
+  end
+
+  def type
+    events.first.source_type
   end
 end
