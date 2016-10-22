@@ -1,24 +1,9 @@
 <div class="container-center">
 
-  <div class="interactions-container">
-
-    <p class="interaction-section-header">New Messages</p>
-    <%= render partial: "interaction" %>
-    <%= render partial: "interaction" %>
-    <%= render partial: "interaction" %>
-    <%= render partial: "interaction" %>
-
-    <p class="interaction-section-header">Open</p>
-    <%= render partial: "interaction" %>
-    <%= render partial: "interaction" %>
-    <%= render partial: "interaction" %>
-
-
-    <p class="interaction-section-header">Closed</p>
-    <%= render partial: "interaction" %>
-    <%= render partial: "interaction" %>
-    <%= render partial: "interaction" %>
-
-  </div>
-
+  <p class="interaction-section-header">Open</p>
+  <ul class="interactions-container">
+    <% @interactions.each do |interaction| %>
+      <%= render interaction %>
+    <% end %>
+  </ul>
 </div>

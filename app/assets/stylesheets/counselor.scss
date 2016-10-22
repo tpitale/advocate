@@ -290,6 +290,9 @@ body{  background-color: $LightGray; margin: 0; padding: 0;}
 
 .interactions-container{
   width: 100%;
+  list-style: none;
+  padding-left: 0;
+
   .interaction-section-header {font-size: 25px;}
   .interaction-container{
     margin-bottom: 30px;

@@ -4,7 +4,7 @@ module Users
     respond_to :html
 
     def index
-      @interactions = Interaction.active_for(current_user)
+      @interactions = Interaction.includes(:events).active_for(current_user)
     end
 
     def show
