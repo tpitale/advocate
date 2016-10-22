@@ -5,13 +5,13 @@
     <p class="interaction-status resolved"><i class="resolution-icon small fa fa-check"></i>Resolved</p>
 
     <span class="timeline-main-text"><%= type_of_interaction(activity_interaction.type) %></span>
-    <span class="timeline-sub-text"><%= activity_interaction.events.last.created_at.strftime('%e %b %Y %I:%M%p') %></span>
+    <span class="timeline-sub-text"><%= activity_interaction.events.last.created_at.strftime("%m/%d/%Y %l:%M %p") %></span>
     <span class="timeline-desc"><%= activity_interaction.description %></span>
     <% if activity_interaction.referral %>
       <div class="referral-container">
-        <p class="referral-title">Client Referred to St Patricks <%#= interaction.service.provider %> for Housing<%#= interaction.service %></p>
-        <p class="referral-note">Referral Note Here</p>
-        <p class="referral-code"><span class="code-title">Code:</span> 11121</p>
+        <p class="referral-title"><%= activity_interaction.referral.title %></p>
+        <p class="referral-note"><%= activity_interaction.referral.note %></p>
+        <p class="referral-code"><span class="code-title">Code:</span> <%= activity_interaction.referral.code %></p>
 
         <div class="ref-btns">
           <%= link_to "resend", "#", class: "c-btn" %>

@@ -18,4 +18,8 @@ class Referral < ActiveRecord::Base
   def service_name
     service.name
   end
+
+  def title
+    "Client Referred to #{provider_name} for #{service_name}"
+  end
 end
