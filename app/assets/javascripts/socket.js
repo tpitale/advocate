@@ -26,14 +26,14 @@ $(function() {
 
   var channel;
 
-  // replace requests with socket registered in user_socket in bridge
+  // replace interactions with socket registered in user_socket in bridge
   // if needed pass ID along to channel call with socket.channel('requests:request_id')
-  channel = socket.channel("requests", {});
+  channel = socket.channel("interactions:*", {});
 
   channel.join().receive("ok", function(resp) {
-    console.log("Joined successfully" + resp);
+    console.log("Joined successfully: " + resp);
   }).receive("error", function(resp) {
-    console.log("Unable to join" + resp);
+    console.log("Unable to join: " + resp);
   }).after(10000, function() {
     console.log("Connection interruption");
   });
@@ -46,9 +46,14 @@ $(function() {
     console.log("the channel has gone away gracefully");
   });
 
-  // rename event1/2/3 based on what we're broadcasting in bridge
-  channel.on("event1", function(data) {
-    // do templating
+  // rename event2/3 based on the event name that we're broadcasting in bridge
+  // https://hexdocs.pm/phoenix/Phoenix.Channel.html#broadcast!/3
+  //
+  // https://github.com/tpitale/counselor-bridge/blob/master/web/channels/interactions_channel.ex#L55
+  // in our bridge above, "interactions:#{event.interaction_id}" is the socket,
+  // "event" is event and payload is the message. so event2/event3 will change to the event in the bridge
+  channel.on("event", function(data) {
+    console.log(data);
   });
 
   channel.on("event2", function(data) {
