@@ -10,6 +10,10 @@
         <%= f.text_field :last_name %>
       </div>
       <div>
+        <%= f.label :birthdate %>
+        <%= f.date_select :birthdate, {order: [:month, :day, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100}, {required: true} %>
+      </div>
+      <div>
         <%= f.label :last_address %>
         <%= f.text_field :last_address %>
       </div>
