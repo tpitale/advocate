@@ -7,6 +7,9 @@ $blue: #00315b;
 $red: #D62828;
 $green: #70d474;
 
+$very-light-gray: #E5E4E2;
+$very-light-blue: #C2DFFF;
+
 h1,h2,h3 {
   font-family: 'Oxygen', sans-serif; // header
 }
@@ -15,95 +18,156 @@ p,a, span, div, input, textarea  {
   font-family: 'Source Sans Pro', sans-serif; // body
 }
 
-body{  background-color: $LightGray; margin: 0; padding: 0;}
+body{  background-color: white; margin: 0; padding: 0; }
 
-.clear {clear: both;}
+.clear {
+  clear: both;
+}
 
 .c-btn{
-  padding: 5px 10px; border: 1px solid $DarkGray;
-  display: inline-block; text-transform: uppercase;
-  text-decoration: none; color: $DarkGray;
-  &:hover{ border-color: $MedGray; color: $MedGray; }
-  &.disabled {
-    background-color: $LightGray; color: $MedGray;
-    pointer-events: none; cursor: default;
+  padding: 0.5em 1em;
+  border: 1px solid $LightGray;
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: $MedGray;
+
+  &:hover {
+    border-color: $MedGray;
+    color: $DarkGray;
+  }
+
+  &:disabled {
+    color: $MedGray;
+    background-color: $LightGray;
+    pointer-events: none;
+    cursor: default;
   }
 }
 
-.button {
-  cursor: pointer;
-  display: inline-block;
-  min-height: 1em;
-  outline: none;
-  border: none;
-  vertical-align: top;
-  margin: 0em 0.25em 0em 1em;
-  padding: 1em 1.5em 1em;
-  text-transform: none;
-  text-shadow: none;
-  font-weight: bold;
-  line-height: 1em;
-  font-style: normal;
-  text-align: center;
-  text-decoration: none;
-  border-radius: 0.28571429rem;
-  box-shadow: 0px 0px 0px 1px transparent inset, 0px 0em 0px 0px rgba(34, 36, 38, 0.15) inset;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  -webkit-transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
-  transition: opacity 0.1s ease, background-color 0.1s ease, color 0.1s ease, box-shadow 0.1s ease, background 0.1s ease;
-  will-change: '';
-  -webkit-tap-highlight-color: transparent;
+input[type='submit'].c-btn {
+  color: #000;
+  font-size: 100%;
+  border-radius: 0;
+  background-color: #FFF;
+}
+
+.new-interaction-btn {
+  float: right;
+  display: block;
+  margin-top: 1em;
+
+  &:hover {
+    color: $teal;
+  }
 }
 
 #header{
-  height: 50px; width: 100%; position: fixed; top: 0; left: 0;
-  background-color: white; z-index: 1;
-  -webkit-box-shadow: 0px 4px 9px 0px rgba(50,50,60,0.1);
-  -moz-box-shadow: 0px 4px 9px 0px rgba(50,50,60,0.1);
-  box-shadow: 0px 4px 9px 0px rgba(50,50,60,0.1);
-  .inner-header { width: 90%; margin: 0 auto;}
+  width: 100%;
+
+  border-bottom: 1px solid $LightGray;
+
+  .inner-header {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+  }
+
   #header-home-link {
-    line-height: 50px; font-size: 20px; color: $DarkGray;
+    display: inline-block;
+    font-size: 120%;
+    color: $DarkGray;
+    text-decoration: none;
+    padding: 0.5em 0.5em;
+    border-bottom: 2px solid #FFF;
+
+    &:hover {
+      border-bottom: 2px solid $MedGray;
+    }
   }
 }
 
+form.simple-form {
+  display: flex;
+  flex-flow: row wrap;
+
+  .form-element {
+    flex: 1;
+    flex-basis: 30%;
+    margin: 0.5em 1em;
+  }
+
+  label {
+    display: block;
+    margin-top: 0.5em;
+  }
+
+  input[type="text"],
+  input[type="tel"],
+  input[type="number"] {
+    width: 100%;
+    padding: 0.25em;
+    font-size: 100%;
+  }
+
+  input[type='submit'].c-btn {
+    margin-top: 1em;
+  }
+}
 
 .page-container{
-  width: 90%; margin: 50px auto 0 auto; max-width: 1050px;
-  padding-top: 50px;
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1050px;
+
+  // padding-top: 50px;
+
+  display: flex;
+  flex-flow: row wrap;
 
   .container-left{
+    flex: 1;
+
+    padding: 2em 0;
+
+    border-right: 1px solid $LightGray;
+
     .provider-form {
-      textarea {
-        resize: none;
-        width: 70%;
+      input[type="text"] {
+        width: 80%;
+        font-size: 100%;
+        padding: 0.5em 0.25em;
       }
 
-      input[type='submit'].button {
-        background: green none;
-        color: rgba(255, 255, 255, 0.6);
+      input[type='submit'].c-btn {
+        color: #000;
+        font-size: 100%;
+        border-radius: 0;
+        background-color: #FFF;
       }
     }
+  }
 
-    width: 48%; margin-right: 1%; display: inline-block; vertical-align: top;
-  }
   .container-right{
-    width: 48%; display: inline-block; vertical-align: top;
+    flex: 1;
+
+    padding: 2em 0;
   }
+
   .container-center{
-    width: 90%; margin: 0 auto;
+    width: 100%; margin: 0 auto;
   }
 }
 
-
 .profile-container{
-  padding: 15px; background-color: white;
-  p {margin: 0;}
-  .name { font-size: 28px; margin-bottom: 10px;}
-  .top-field  { font-size: 14px; margin-bottom: 5px;}
+  padding: 15px;
+
+  p {
+    margin: 0;
+  }
+
+  .name { font-size: 28px; margin-bottom: 10px; }
+  .top-field  { font-size: 14px; margin-bottom: 5px; }
 
   .middle-field{
     font-size: 12px;
@@ -116,17 +180,33 @@ body{  background-color: $LightGray; margin: 0; padding: 0;}
     margin: 10px 0 10px -15px; padding: 15px;
   }
 
-  .referral-send-container .button {
-    background: blue none;
-    color: rgba(255, 255, 255, 1);
+  .referral-send-container {
+    h1 {
+      margin: 0.25em;
+    }
+
+    .send-referral {
+      color: #000;
+      font-size: 100%;
+      border-radius: 0;
+      background-color: #FFF;
+      float: right;
+      display: block;
+      margin-bottom: 1em;
+    }
   }
 
   #profile-toggle-container{
-    width: calc(100% + 28px); height: 50px; margin: 10px 0 10px -15px;
+    clear: right;
+
+    width: calc(100% + 28px);
+    height: 50px;
+    margin: 10px 0 10px -15px;
     border-top: 1px solid $LightGray;
     border-bottom: 1px solid $LightGray;
     border-right: 1px solid white;
     border-left: 1px solid white;
+
     .profile-toggle-btn{
       width: 50%; display: inline-block; text-decoration: none;
       float: left; height: 100%; text-align: center; line-height: 50px;
@@ -166,12 +246,18 @@ body{  background-color: $LightGray; margin: 0; padding: 0;}
       }
 
       .vert-line {
-        height: 100%; width: 1px; display: block; background-color: $DarkGray;
-        position: absolute; left: 25px; z-index: 0;
+        height: 100%;
+        width: 1px;
+        display: block;
+        background-color: $MedGray;
+        position: absolute;
+        left: 25px;
+        z-index: 0;
       }
 
       .timeline-text-container{
-        display: inline-block; width: calc(100% - 70px);
+        display: inline-block;
+        width: calc(100% - 70px);
 
         .interaction-status {
           float: right; vertical-align: top; margin: 10px 0 0 0; color: $MedGray;
@@ -196,8 +282,12 @@ body{  background-color: $LightGray; margin: 0; padding: 0;}
         .timeline-desc{ }
         .referral-container {
           p {margin: 0;}
-          background-color: rgba(127, 196, 253, .5); padding: 15px;
-          display: block; margin-top: 15px;
+          // background-color: rgba(127, 196, 253, .5);
+          padding: 1em;
+          display: block;
+          margin-top: 1em;
+          border-bottom: 1px solid $LightGray;
+
           .referral-title { margin-bottom: 5px; font-size: 14px;}
           .referral-note { margin: 0; font-size: 11px;}
           .referral-code { margin: 0; font-size: 11px;
@@ -220,7 +310,9 @@ body{  background-color: $LightGray; margin: 0; padding: 0;}
   padding: 15px; background-color: white;
 
   .provider-container{
-    padding: 15px; border: 1px solid $DarkGray; margin-bottom: 30px;
+    padding: 1em;
+    border: 1px solid $LightGray;
+    margin-bottom: 2em;
 
     .qualified {
       width: 90%; padding: 10px 5%;  background-color: $green;
@@ -268,72 +360,112 @@ body{  background-color: $LightGray; margin: 0; padding: 0;}
 }
 
 .messages-container{
-  background-color: white; padding: 15px 30px;
+  padding-right: 1em;
 
-  .incoming-msg-from {float: left; font-size: 12px; margin: 0 0 3px 0; color: $MedGray;}
+  // background-color: white; padding: 15px 30px;
+  margin-top: 2em;
+  border-top: 1px solid $LightGray;
+
+  .incoming-msg-from {
+    margin: 0;
+    font-size: 80%;
+    padding: 0.25em 0.5em;
+    border-bottom: 1px solid $LightGray;
+    border-right: 5px solid $very-light-gray;
+
+  }
+
   .incoming-msg-to {
-    float: right; font-size: 12px; margin: 0 0 3px 0; color: $MedGray;
-    .provider-name {font-style: italic;}
+    margin: 0;
+    font-size: 80%;
+    text-align: right;
+    padding: 0.25em 0.5em;
+    border-bottom: 1px solid $LightGray;
+    border-right: 5px solid $very-light-blue;
+
+    .provider-name {
+      font-style: italic;
+    }
   }
 
 
   .text-bubble {
-    // http://ilikepixels.co.uk/drop/bubbler/ //
-    position: relative;
-    display: inline-block;
-    padding: 15px; background: #FFFFFF;
-    -webkit-border-radius: 10px; -moz-border-radius: 10px; border-radius: 10px;
-    border: #7F7F7F solid 2px;
-    float: right;
+    font-size: 150%;
+    margin-top: 0.5em;
+    padding-top: 1em;
+    padding-right: 0.5em;
 
-    &:before{
-      content: ''; position: absolute; border-style: solid; border-width: 15px 0 15px 15px; border-color: transparent #FFFFFF;
-      display: block;
-      width: 0; z-index: 1; margin-top: -15px;
-      right: -15px; left: initial; top: 50%;
-    }
-    &:after{
-      content: ''; position: absolute; border-style: solid;
-      border-width: 16px 0 16px 16px; border-color: transparent #7F7F7F; display: block;
-      width: 0; z-index: 0; margin-top: -16px; right: -18px;
-      left: initial; top: 50%;
-    }
+    border-right: 5px solid $very-light-gray;
 
-    &.incoming{
-      float: left;
-      &:after{
-        content: ''; position: absolute; border-style: solid;
-        border-width: 15px 15px 15px 0; border-color: transparent #FFFFFF;
-        display: block; width: 0; z-index: 1; margin-top: -15px; left: -15px; top: 50%;
-      }
-      &:before{
-        content: ''; position: absolute; border-style: solid; border-width: 16px 16px 16px 0; border-color: transparent #7F7F7F;
-        display: block; width: 0; z-index: 0; margin-top: -16px;
-        left: -18px; top: 50%;
-      }
+    &.outgoing {
+      text-align: right;
+      border-right: 5px solid $very-light-blue;
     }
   }
-  .msg-sep{margin-bottom: 10px; clear: both;}
 }
 
+.interaction-section-header {
+  @extend .clear;
+
+  font-size: 150%;
+  margin-top: 2em;
+  padding-bottom: 1em;
+  border-bottom: 1px solid $LightGray;
+}
 
 .interactions-container{
   width: 100%;
   list-style: none;
   padding-left: 0;
 
-  .interaction-section-header {font-size: 25px;}
   .interaction-container{
-    margin-bottom: 30px;
-    &:hover {outline: 1px solid $MedGray;}
-    a {text-decoration: none; display: block;}
-    padding: 15px; background-color: white;
-    p, span{color: $DarkGray;}
+    margin-bottom: 2em;
 
-    .client-name {font-weight: bold; margin: 0; font-size: 28px;}
+    a {
+      padding: 1em;
+      display: block;
+      text-decoration: none;
+      border: 1px solid transparent;
+      border-bottom: 1px solid $LightGray;
+
+      &:hover {
+        cursor: pointer;
+        border-bottom: 1px solid $MedGray;
+      }
+
+      display: flex;
+      flex-flow: row wrap;
+
+      .int-class-left {
+        flex: 1;
+      }
+      .int-class-right {
+        flex: 1;
+      }
+    }
+
+    p, span{
+      color: $DarkGray;
+    }
+
+    .client-name {
+      margin: 0;
+      font-size: 200%;
+    }
+
     .interaction-data {
-      .title {font-weight: bold; margin-right: 10px; width: 100px; }
-      i{width: 20px; margin-right: 5px;}
+      margin: 0.25em 0;
+
+      .title {
+        // font-weight: 900;
+        color: $MedGray;
+        margin-right: 0.25em;
+      }
+
+      i {
+        width: 20px;
+        margin-right: 0;
+      }
     }
   }
 }
