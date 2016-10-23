@@ -56,7 +56,7 @@ class Interaction < ActiveRecord::Base
 
   def last_contact
     events = Event.where(interaction: self)
-    if events
+    if events.any?
       events.max_by(&:created_at).created_at.strftime("%m/%d/%Y %l:%M %p")
     end
   end
