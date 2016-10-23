@@ -23,7 +23,8 @@
       <%= f.hidden_field :source_type, value: 'sms' %>
 
       <%= f.text_field :content %>
-      <%= f.submit (@interaction.type == "sms" ? "Reply" : "Note"), class: 'c-btn' %>
+      <%= f.submit "Note", class: 'c-btn' %>
+      <%= f.submit "Reply", class: 'c-btn' %>
     <% end %>
   </div>
 

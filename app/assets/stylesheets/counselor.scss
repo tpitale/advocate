@@ -18,7 +18,15 @@ p,a, span, div, input, textarea  {
   font-family: 'Source Sans Pro', sans-serif; // body
 }
 
-body{  background-color: white; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+}
+
+body{
+  background-color: white;
+  margin: 0;
+  padding: 0;
+}
 
 .clear {
   clear: both;
@@ -134,7 +142,7 @@ form.simple-form {
 
     .provider-form {
       input[type="text"] {
-        width: 80%;
+        width: 98%;
         font-size: 100%;
         padding: 0.5em 0.25em;
       }
@@ -144,6 +152,9 @@ form.simple-form {
         font-size: 100%;
         border-radius: 0;
         background-color: #FFF;
+
+        float: right;
+        margin: 0.5em 0.75em;
       }
     }
   }
@@ -360,6 +371,7 @@ form.simple-form {
 }
 
 .messages-container{
+  clear: right;
   padding-right: 1em;
 
   // background-color: white; padding: 15px 30px;
