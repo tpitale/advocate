@@ -14,6 +14,16 @@ module Users
       respond_with @referral, location: [:users, current_interaction]
     end
 
+    def show
+      @referral = Referral.find(params[:id])
+    end
+
+    def update
+      @referral = Referral.find(params[:id])
+      @referral.update_attributes(status: "resolved")
+      redirect_to users_interaction_path(@referral.interaction)
+    end
+
     private
     def current_interaction
       @current_interaction ||= Interaction.find(params[:interaction_id] || params[:referral][:interaction_id])
