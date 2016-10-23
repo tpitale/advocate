@@ -32,5 +32,5 @@ Service.where(name: "Food Programs & Pantries").each{|s|s.update_attribute(:name
 
 Provider.all.each{|p|p.geocode;p.save}
 
-User.create(email: 'tpitale@gmail.com') # test user
+User.create(email: 'tpitale@gmail.com', first_name: "Tony", last_name: "Pitale") # test user
 Client.create(phone: "+12028054284")
