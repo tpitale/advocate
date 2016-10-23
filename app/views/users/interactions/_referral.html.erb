@@ -1,8 +1,8 @@
-<% if @interaction.referral && !@interaction.referral.resolved? %>
+<% if (referral = @interaction.referral) && !@interaction.referral.resolved? %>
   <div class="referral-send-container">
     <h1>Referal code: <%= @interaction.referral.code %></h1>
 
-    <button class="send-referral c-btn" data-service="<%= @interaction.referral.service.name %>" data-location="<%= @interaction.referral.service.provider.name %>" data-referral-code="<%= @interaction.referral.code %>">
+    <button class="send-referral c-btn" data-service="<%= referral.service.name %>" data-name="<%= referral.service.provider.name %>" data-referral-code="<%= referral.code %>" data-location="<%= referral.service.provider.full_address %>" data-phone="<%= referral.service.provider.phone %>">
       <%= "Send to Client" %>
     </button>
   </div>

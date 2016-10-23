@@ -11,8 +11,11 @@
     $(".referral-send-container button.send-referral").click(function() {
       var code = $(this).data("referral-code");
       var service = $(this).data("service");
+      var name = $(this).data("name");
       var location = $(this).data("location");
-      $("input#event_content").val("Ok, I have you set up for " + service + " at " + location + ". Your referral code is: " + code + ", please share this when you arrive. Can I provide you directions?");
+      var phone = $(this).data("phone");
+
+      $("input#event_content").val("You're set up at " + name + " (" + location + "). Please share code " + code + " when you arrive.");
     })
   })
 </script>
