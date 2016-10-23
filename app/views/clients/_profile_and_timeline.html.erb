@@ -9,14 +9,8 @@
   </div>
 
 
-  <div class="referral-start-container">
-    <p>Refer Client To Services:</p>
-    <%= select_tag "author",
-      options_for_select(["Emergency Shelter", "Food Programs", "Utility Assistance", "Employment Assistance", "Landlord Services"]),
-      id: "service-type-search",
-      class: "selectize sans-body",
-      prompt: "Select A Service Type"  %>
-  </div>
+
+  <%= render "referral" %>
 
   <div id="profile-toggle-container">
     <%= link_to "Activity Log", "#", class: "profile-toggle-btn active", onclick: "$('.profile-toggle-btn').removeClass('active');$(this).addClass('active');$(this).addClass('active'); $('.client-details-container').removeClass('active'); $('.timeline-container').addClass('active'); return false;" %>
