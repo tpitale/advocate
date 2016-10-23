@@ -483,3 +483,9 @@ form.simple-form {
 }
 
 .not-found {color: $red; margin: 15px 0; display: inline-block;}
+
+#housing-gender-spec{
+  margin-top: 5px;
+  i {margin-right: 5px;}
+  &.hidden {display: none;}
+}
