@@ -19,7 +19,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resources :clients, only: [:edit, :update]
+    resources :clients, only: [:edit, :update, :index, :new, :create]
     resources :services, only: [:index]
     resources :referrals, only: [:new, :create, :show, :update]
   end

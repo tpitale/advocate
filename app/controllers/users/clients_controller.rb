@@ -17,6 +17,23 @@ module Users
       end
     end
 
+    def index
+      @clients = Client.all
+    end
+
+    def new
+      @client = Client.new
+    end
+
+    def create
+      @client = Client.new(client_params)
+      if @client.save
+        redirect_to users_clients_path
+      else
+        render :new
+      end
+    end
+
     private
 
       def client_params

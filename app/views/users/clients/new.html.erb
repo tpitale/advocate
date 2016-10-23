@@ -1,0 +1,66 @@
+<div class="profile-container">
+  <%= form_for [:users, @client], html: {class: "simple-form"} do |f| %>
+    <div class="form-element">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="form-element">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="form-element">
+      <%= f.label :birthdate %>
+      <%= f.date_select :birthdate, {order: [:month, :day, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100}, {required: true} %>
+    </div>
+    <div class="form-element">
+      <%= f.label :last_address %>
+      <%= f.text_field :last_address %>
+    </div>
+    <div class="form-element">
+      <%= f.label :phone %>
+      <%= f.phone_field :phone %>
+    </div>
+    <div class="form-element">
+      <%= f.label :gender %>
+      <%= f.text_field :gender %>
+    </div>
+    <div class="form-element">
+      <%= f.label :ssn %>
+      <%= f.text_field :ssn %>
+    </div>
+    <div class="form-element">
+      <%= f.label :ethnicity %>
+      <%= f.text_field :ethnicity %>
+    </div>
+    <div class="form-element">
+      <%= f.label :education %>
+      <%= f.text_field :education %>
+    </div>
+    <div class="form-element">
+      <%= f.label :kid_count %>
+      <%= f.number_field :kid_count %>
+    </div>
+    <div class="form-element">
+      <%= f.label :employed %>
+      <%= f.check_box :employed %>
+    </div>
+    <div class="form-element">
+      <%= f.label :veteran %>
+      <%= f.check_box :veteran %>
+    </div>
+    <div class="form-element">
+      <%= f.label :domestic_assault_victim %>
+      <%= f.check_box :domestic_assault_victim %>
+    </div>
+    <div class="form-element">
+      <%= f.label :mental_health %>
+      <%= f.check_box :mental_health %>
+    </div>
+    <div class="form-element">
+      <!-- column filler -->
+    </div>
+
+
+    <%= f.submit "Submit", class: "c-btn" %>
+  <% end %>
+</div>

@@ -1,0 +1,24 @@
+<li class="interaction-container">
+  <% if client.last_contacted_event %>
+    <%= link_to users_interaction_path(client.last_contacted_event.interaction) do %>
+      <div class='int-class-left'>
+        <p class="client-name"><%= client.first_name || client.phone %></p>
+        <p class="interaction-data">
+          <i class="fa fa-clock-o"></i>
+          <span class="title">Last Contacted:</span>
+          <%= client.last_contacted %>
+        </p>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to "#" do %>
+      <div class='int-class-left'>
+        <p class="client-name"><%= client.first_name || client.phone %></p>
+        <p class="interaction-data">
+          <i class="fa fa-clock-o"></i>
+          <span class="title">There hasn't been any interaction with <%= client.name %> yet.</span>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
+</li>
