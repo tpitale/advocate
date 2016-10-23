@@ -21,6 +21,7 @@ module Users
     def update
       @referral = Referral.find(params[:id])
       @referral.update_attributes(status: "resolved")
+      @referral.interaction.update_attributes(status: "resolved")
       redirect_to users_interaction_path(@referral.interaction)
     end
 
