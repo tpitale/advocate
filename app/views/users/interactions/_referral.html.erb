@@ -2,7 +2,7 @@
   <div class="referral-send-container">
     <h1>Referal code: <%= @interaction.referral.code %></h1>
 
-    <button class="send-referral c-btn" data-referral-code="<%= @interaction.referral.code %>">
+    <button class="send-referral c-btn" data-service="<%= @interaction.referral.service.name %>" data-location="<%= @interaction.referral.service.provider.name %>" data-referral-code="<%= @interaction.referral.code %>">
       <%= "Send to Client" %>
     </button>
   </div>
