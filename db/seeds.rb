@@ -6,7 +6,12 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 if ENV['RESET']
+  Service.destroy_all
   Provider.destroy_all
+  User.destroy_all
+  Client.destroy_all
+  Event.destroy_all
+  Interaction.destroy_all
 end
 
 if Provider.all.empty?
@@ -15,7 +20,7 @@ if Provider.all.empty?
 end
 
 if Service.all.empty?
-  services = [{:provider_name=>"12th & Park Shelter", :category=>"Housing", :name=>"Emergency Shelter", :male=>true, :female=>false},{:provider_name=>"Gateway 180", :category=>"Housing", :name=>"Emergency Shelter", :male=>false, :female=>true},{:provider_name=>"Loaves & Fishes Inc.", :category=>"Housing", :name=>"Emergency Shelter", :male=>false, :female=>true},{:provider_name=>"Our Lady's Inn", :category=>"Housing", :name=>"Emergency Shelter", :male=>false, :female=>"TRUE (if pregnant)"},{:provider_name=>"Peter & Paul", :category=>"Housing", :name=>"Emergency Shelter", :male=>true, :female=>false},{:provider_name=>"Room at The Inn", :category=>"Housing", :name=>"Emergency Shelter", :male=>false, :female=>true},{:provider_name=>"Saint Patrick Center- Women's Night", :category=>"Housing", :name=>"Emergency Shelter", :male=>false, :female=>true},{:provider_name=>"Salvation Army Family Haven", :category=>"Housing", :name=>"Emergency Shelter", :male=>true, :female=>true},{:provider_name=>"BIDDLE HOUSE OPPORTUNITIES CENTER", :category=>"Food", :name=>"Food Programs & Pantries", :male=>false, :female=>false},{:provider_name=>"SHAMROCK CLUB AT ST. PATRICK'S CENTER", :category=>"Food", :name=>"Food Programs & Pantries", :male=>false, :female=>false},{:provider_name=>"NEW LIFE EVANGELISTIC CENTER", :category=>"Food", :name=>"Food Programs & Pantries", :male=>false, :female=>false},{:provider_name=>"CHRIST CHURCH CATHEDRAL", :category=>"Food", :name=>"Food Programs & Pantries", :male=>false, :female=>false},{:provider_name=>"FATHER DEMPSEY'S HOME", :category=>"Food", :name=>"Food Programs & Pantries", :male=>false, :female=>false},{:provider_name=>"ENERGY CARE", :category=>"Utilities", :name=>"Utility Assistance", :male=>false, :female=>false},{:provider_name=>"FRANCISCAN CONNECTION", :category=>"Utilities", :name=>"Utility Assistance", :male=>false, :female=>false},{:provider_name=>"PAKT Community Resource Center", :category=>"Utilities", :name=>"Utility Assistance", :male=>false, :female=>false}]
+  services = [{:provider_name=>"12th & Park Shelter", :category=>"Housing", :name=>"Emergency Shelter", :male=>true, :female=>false},{:provider_name=>"Gateway 180", :category=>"Housing", :name=>"Emergency Shelter", :male=>false, :female=>true},{:provider_name=>"Loaves & Fishes Inc.", :category=>"Housing", :name=>"Emergency Shelter", :male=>false, :female=>true},{:provider_name=>"Our Lady's Inn", :category=>"Housing", :name=>"Emergency Shelter", :male=>false, :female=>"TRUE (if pregnant)"},{:provider_name=>"Peter & Paul", :category=>"Housing", :name=>"Emergency Shelter", :male=>true, :female=>false},{:provider_name=>"Room at The Inn", :category=>"Housing", :name=>"Emergency Shelter", :male=>false, :female=>true},{:provider_name=>"Saint Patrick Center- Women's Night", :category=>"Housing", :name=>"Emergency Shelter", :male=>false, :female=>true},{:provider_name=>"Salvation Army Family Haven", :category=>"Housing", :name=>"Emergency Shelter", :male=>true, :female=>false},{:provider_name=>"BIDDLE HOUSE OPPORTUNITIES CENTER", :category=>"Food", :name=>"Food Programs & Pantries", :male=>false, :female=>false},{:provider_name=>"SHAMROCK CLUB AT ST. PATRICK'S CENTER", :category=>"Food", :name=>"Food Programs & Pantries", :male=>false, :female=>false},{:provider_name=>"NEW LIFE EVANGELISTIC CENTER", :category=>"Food", :name=>"Food Programs & Pantries", :male=>false, :female=>false},{:provider_name=>"CHRIST CHURCH CATHEDRAL", :category=>"Food", :name=>"Food Programs & Pantries", :male=>false, :female=>false},{:provider_name=>"FATHER DEMPSEY'S HOME", :category=>"Food", :name=>"Food Programs & Pantries", :male=>false, :female=>false},{:provider_name=>"ENERGY CARE", :category=>"Utilities", :name=>"Utility Assistance", :male=>false, :female=>false},{:provider_name=>"FRANCISCAN CONNECTION", :category=>"Utilities", :name=>"Utility Assistance", :male=>false, :female=>false},{:provider_name=>"PAKT Community Resource Center", :category=>"Utilities", :name=>"Utility Assistance", :male=>false, :female=>false}]
   services.each do |service_attributes|
     provider = Provider.find_by(name: service_attributes[:provider_name])
     service_attributes.delete(:provider_name)
@@ -26,3 +31,6 @@ end
 Service.where(name: "Food Programs & Pantries").each{|s|s.update_attribute(:name, "Food Programs")}
 
 Provider.all.each{|p|p.geocode;p.save}
+
+User.create(email: 'tpitale@gmail.com') # test user
+Client.create(phone: "+12028054284")

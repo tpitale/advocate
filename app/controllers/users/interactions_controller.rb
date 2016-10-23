@@ -15,7 +15,10 @@ module Users
     end
 
     def new
-      @interaction = Interaction.new
+      client = Client.where(id: params[:client_id]).first
+      phone = client.phone if client
+
+      @interaction = Interaction.new(phone: phone)
     end
 
     def create
