@@ -45,4 +45,12 @@ class Interaction < ActiveRecord::Base
   def type
     events.any? ? events.first.source_type : ""
   end
+
+  def open?
+    status == "open"
+  end
+
+  def resolved?
+    !open?
+  end
 end
