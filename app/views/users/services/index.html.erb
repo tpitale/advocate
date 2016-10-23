@@ -14,7 +14,7 @@ $(document).ready(function(){
   _.each($('.provider-map-canvas'), function(mapCanvas){
     var map = new google.maps.Map(mapCanvas, {
       center: {lat: $(mapCanvas).data('lat'), lng: $(mapCanvas).data('lon')},
-      scrollwheel: false,styles: styles, zoom: 12
+      scrollwheel: false,styles: styles, zoom: 14
     });
     var marker = new google.maps.Marker({ position: {lat: $(mapCanvas).data('lat'), lng: $(mapCanvas).data('lon')}, map: map });
   });
