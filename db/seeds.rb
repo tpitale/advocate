@@ -24,3 +24,5 @@ if Service.all.empty?
 end
 
 Service.where(name: "Food Programs & Pantries").each{|s|s.update_attribute(:name, "Food Programs")}
+
+Provider.all.each{|p|p.geocode;p.save}
