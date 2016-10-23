@@ -10,7 +10,7 @@
     </div>
     <div class="form-element">
       <%= f.label :birthdate %>
-      <%= f.date_select :birthdate, {order: [:month, :day, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100}, {required: true} %>
+      <%= f.date_select :birthdate, {order: [:month, :day, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100}, {required: false} %>
     </div>
     <div class="form-element">
       <%= f.label :last_address %>
