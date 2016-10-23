@@ -40,7 +40,7 @@ class Client < ActiveRecord::Base
 
   def last_contacted
     events = Event.where(interaction: interactions)
-    if events
+    if events.any?
       events.max_by(&:created_at).created_at.strftime("%m/%d/%Y %l:%M %p")
     end
   end
