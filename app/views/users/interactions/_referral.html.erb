@@ -1,13 +1,4 @@
-<% if !@interaction.referral %>
-  <div class="referral-start-container">
-    <p>Refer Client To Services:</p>
-    <%= select_tag "author",
-      options_for_select(["Emergency Shelter", "Food Programs & Pantries", "Utility Assistance"]),
-      id: "service-type-search",
-      class: "selectize sans-body",
-      prompt: "Select A Service Type" %>
-  </div>
-<% else %>
+<% if @interaction.referral && !@interaction.referral.resolved? %>
   <div class="referral-send-container">
     <h1>Referal code: <%= @interaction.referral.code %></h1>
 
@@ -15,4 +6,22 @@
       <%= "Send to Client" %>
     </button>
   </div>
+<% else %>
+  <div class="referral-start-container">
+    <p>Refer Client To Services:</p>
+    <%= select_tag "author",
+      options_for_select(["Emergency Shelter", "Food Programs & Pantries", "Utility Assistance"]),
+      id: "service-type-search",
+      class: "selectize sans-body",
+      prompt: "Select A Service Type" %>
+
+    <% unless @client.gender.present? %>
+      <div id="housing-gender-spec" class="hidden">
+        <p><i class="fa fa-exclamation-triangle"></i>Please note: many shelters are restricted by gender. Ask the client if they'd like to provide this information</p>
+        <%= link_to "update client info", edit_users_client_path(@client, search_service: "Emergency Shelter"), class: "c-btn" %>
+        <%= link_to "Find Service", users_services_path(service_name: "Emergency Shelter", interaction_id: @interaction.id), class: "c-btn" %>
+      </div>
+    <% end %>
+  </div>
+
 <% end %>
