@@ -84,13 +84,41 @@ input[type='submit'].c-btn {
   #header-home-link {
     display: inline-block;
     font-size: 120%;
-    color: $DarkGray;
+    color: $teal;
     text-decoration: none;
     padding: 0.5em 0.5em;
     border-bottom: 2px solid #FFF;
 
     &:hover {
-      border-bottom: 2px solid $MedGray;
+      color: $DarkGray;
+      border-bottom: 2px solid $DarkGray;
+    }
+  }
+
+  ul.primary-navigation {
+    margin: 0;
+    padding: 0;
+    margin-left: 1em;
+    display: inline-block;
+
+    li {
+      padding: 0;
+      margin: 0;
+      list-style: none;
+      display: inline-block;
+
+      a {
+        display: block;
+        font-size: 120%;
+        color: $DarkGray;
+        text-decoration: none;
+        padding: 0.5em 0.5em;
+        border-bottom: 2px solid #FFF;
+
+        &:hover {
+          border-bottom: 2px solid $MedGray;
+        }
+      }
     }
   }
 }

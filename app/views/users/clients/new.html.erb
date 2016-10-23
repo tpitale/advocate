@@ -9,16 +9,16 @@
       <%= f.text_field :last_name %>
     </div>
     <div class="form-element">
-      <%= f.label :birthdate %>
+      <%= f.label :birthdate, "Birthday *" %>
       <%= f.date_select :birthdate, {order: [:month, :day, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100}, {required: true} %>
+    </div>
+    <div class="form-element">
+      <%= f.label :phone, "Phone *" %>
+      <%= f.phone_field :phone %>
     </div>
     <div class="form-element">
       <%= f.label :last_address %>
       <%= f.text_field :last_address %>
-    </div>
-    <div class="form-element">
-      <%= f.label :phone %>
-      <%= f.phone_field :phone %>
     </div>
     <div class="form-element">
       <%= f.label :gender %>
@@ -59,7 +59,6 @@
     <div class="form-element">
       <!-- column filler -->
     </div>
-
 
     <%= f.submit "Submit", class: "c-btn" %>
   <% end %>
