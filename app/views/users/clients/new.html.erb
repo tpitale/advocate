@@ -1,5 +1,5 @@
 <div class="profile-container">
-  <%= form_for @client, html: {class: "simple-form"} do |f| %>
+  <%= form_for [:users, @client], html: {class: "simple-form"} do |f| %>
     <div class="form-element">
       <%= f.label :first_name %>
       <%= f.text_field :first_name %>
