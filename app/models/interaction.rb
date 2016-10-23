@@ -16,9 +16,8 @@ class Interaction < ActiveRecord::Base
 
   def self.no_replies_ids
     select("interactions.id").
-    joins("LEFT OUTER JOIN events ON interactions.id = events.interaction_id").
+    joins("LEFT OUTER JOIN events ON interactions.id = events.interaction_id AND events.user_id IS NOT NULL").
     group("interactions.id").
-    where("events.user_id IS NULL").
     having("count(events.id) = 0")
   end
 
