@@ -35,7 +35,7 @@ class Client < ActiveRecord::Base
 
   def contact_types
     types = interactions.map(&:type).uniq.compact
-    types.any? ? types : "No contact types"
+    types.any? ? types.join(", ") : "No contact types"
   end
 
   def last_contacted
