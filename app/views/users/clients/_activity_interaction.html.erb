@@ -2,7 +2,9 @@
   <div class="vert-line"></div>
   <i class="timeline-icon fa <%= icon_class_for_interaction(activity_interaction.type) %>"></i>
   <div class="timeline-text-container">
-    <p class="interaction-status resolved"><i class="resolution-icon small fa fa-check"></i>Resolved</p>
+    <% if activity_interaction.resolved? %>
+      <p class="interaction-status resolved"><i class="resolution-icon small fa fa-check"></i>Resolved</p>
+    <% end %>
 
     <span class="timeline-main-text"><%= type_of_interaction(activity_interaction.type) %></span>
     <% if latest_event = activity_interaction.events.last %>
