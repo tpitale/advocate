@@ -14,6 +14,6 @@ Rails.application.routes.draw do
 
     resources :clients, only: [:edit, :update]
     resources :services, only: [:index]
-    resources :referrals, only: [:new, :create]
+    resources :referrals, only: [:new, :create, :show, :update]
   end
 end

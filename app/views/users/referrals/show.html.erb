@@ -1,0 +1,10 @@
+<div class="container-center">
+  <div class="referral-resolve-container">
+    <p class='resolve-title'>Mark Referral As Resolved</p>
+
+    <p class="mark-ref-instructions">Please mark this referral as resolved if you've confirmed that the client has received the referred service.</p>
+
+    <%= button_to "Mark as Resolved", users_referral_path(@referral), method: :put, class: "c-btn" %>
+  </div>
+
+</div>
