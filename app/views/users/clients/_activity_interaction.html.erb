@@ -2,7 +2,7 @@
   <div class="vert-line"></div>
   <i class="timeline-icon fa <%= icon_class_for_interaction(activity_interaction.type) %>"></i>
   <div class="timeline-text-container">
-    <% if activity_interaction.resolved? %>
+    <% if activity_interaction.referral.present? && activity_interaction.referral.resolved? %>
       <p class="interaction-status resolved"><i class="resolution-icon small fa fa-check"></i>Resolved</p>
     <% end %>
 
