@@ -5,6 +5,6 @@
       <h2>Send your first message.</h2>
     </div>
   <% else %>
-    <%= render @interaction.events.reverse %>
+    <%= render @interaction.events.order("created_at DESC") %>
   <% end %>
 </div>
