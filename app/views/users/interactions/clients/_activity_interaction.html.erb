@@ -2,7 +2,9 @@
   <div class="vert-line"></div>
   <i class="timeline-icon fa <%= icon_class_for_interaction(activity_interaction.type) %>"></i>
   <div class="timeline-text-container">
-    <p class="interaction-status resolved"><i class="resolution-icon small fa fa-check"></i>Resolved</p>
+    <% if activity_interaction.referral.present? && activity_interaction.referral.resolved? %>
+      <p class="interaction-status resolved"><i class="resolution-icon small fa fa-check"></i>Resolved</p>
+    <% end %>
 
     <span class="timeline-main-text"><%= type_of_interaction(activity_interaction.type) %></span>
     <span class="timeline-sub-text"><%= activity_interaction.events.last.created_at.strftime("%m/%d/%Y %l:%M %p") %></span>
@@ -13,10 +15,12 @@
         <p class="referral-note"><%= activity_interaction.referral.note %></p>
         <p class="referral-code"><span class="code-title">Code:</span> <%= activity_interaction.referral.code %></p>
 
-        <div class="ref-btns">
-          <%= link_to "resend", "#", class: "c-btn" %>
-          <%= link_to "mark", "#", class: "c-btn" %>
-        </div>
+        <% unless activity_interaction.referral.resolved? %>
+          <div class="ref-btns">
+            <%= link_to "resend", "#", class: "c-btn" %>
+            <%= link_to "mark as resolved", users_referral_path(activity_interaction.referral), class: "c-btn" %>
+          </div>
+        <% end %>
       </div>
     <% end %>
   </div>

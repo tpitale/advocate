@@ -19,7 +19,15 @@ class Referral < ActiveRecord::Base
     service.name
   end
 
+  def resolved?
+    status == "resolved"
+  end
+
   def title
-    "Client Referred to #{provider_name} for #{service_name}"
+    if resolved?
+      "Client Successfully Referred to #{provider_name} for #{service_name}"
+    else
+      "Client Referred to #{provider_name} for #{service_name}"
+    end
   end
 end
