@@ -8,11 +8,11 @@ Rails.application.routes.draw do
   namespace :users do
     resources :interactions, only: [:index, :show, :new, :create] do
       scope module: 'interactions' do
-        resources :clients, only: [:edit, :update]
         resources :events, only: [:create]
       end
     end
 
+    resources :clients, only: [:edit, :update]
     resources :services, only: [:index]
     resources :referrals, only: [:new, :create]
   end

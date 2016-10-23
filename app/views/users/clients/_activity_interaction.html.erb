@@ -5,7 +5,9 @@
     <p class="interaction-status resolved"><i class="resolution-icon small fa fa-check"></i>Resolved</p>
 
     <span class="timeline-main-text"><%= type_of_interaction(activity_interaction.type) %></span>
-    <span class="timeline-sub-text"><%= activity_interaction.events.last.created_at.strftime("%m/%d/%Y %l:%M %p") %></span>
+    <% if latest_event = activity_interaction.events.last %>
+      <span class="timeline-sub-text"><%= latest_event.created_at.strftime("%m/%d/%Y %l:%M %p") %></span>
+    <% end %>
     <span class="timeline-desc"><%= activity_interaction.description %></span>
     <% if activity_interaction.referral %>
       <div class="referral-container">

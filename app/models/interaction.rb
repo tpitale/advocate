@@ -43,6 +43,6 @@ class Interaction < ActiveRecord::Base
   end
 
   def type
-    events.first.source_type
+    events.any? ? events.first.source_type : ""
   end
 end
