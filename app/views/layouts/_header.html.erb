@@ -3,5 +3,9 @@
     <%= link_to root_path, id: "header-home-link" do %>
       <span>Advocate</span>
     <% end %>
+    <ul class="primary-navigation">
+      <li><%= link_to "Interactions", users_interactions_path %></li>
+      <li><%= link_to "Clients", users_clients_path %></li>
+    </ul>
   </div>
 </div>
