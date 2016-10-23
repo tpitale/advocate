@@ -7,7 +7,11 @@ module Users
     def update
       @client = Client.find(params[:id])
       if @client.update_attributes(client_params)
-        redirect_to users_interactions_path
+        if params["search_path"].present?
+          redirect_to users_services_path(service_name: params["search_path"], interaction_id: @client.interactions.last.id)
+        else
+          redirect_to users_interactions_path
+        end
       else
         render :edit
       end
