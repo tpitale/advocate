@@ -1,0 +1,16 @@
+<div class="container-center">
+  <div class="referral-resolve-container">
+    <p class='resolve-title'>Mark Referral As Resolved</p>
+
+    <% if params["not_found"] %>
+      <p class="not-found">Sorry, we couldn't find that code.  Please try again</p>
+    <% end %>
+    <p class="mark-ref-instructions">Please enter a ref code to mark a referral as resolved.</p>
+
+    <%= form_tag mark_referrals_path do %>
+      <%= text_field_tag "referral_code", "", placeholder: "Enter A Referral Code" %>
+      <%= submit_tag "Mark As Resolved", class: "c-btn" %>
+    <% end %>
+  </div>
+
+</div>
