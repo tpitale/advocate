@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :clients, only: [:index, :new, :create]
+
   namespace :users do
     resources :interactions, only: [:index, :show, :new, :create] do
       scope module: 'interactions' do

@@ -38,10 +38,16 @@ class Client < ActiveRecord::Base
     types.any? ? types.join(", ") : "No contact types"
   end
 
-  def last_contacted
+  def last_contacted_event
     events = Event.where(interaction: interactions)
     if events.any?
-      events.max_by(&:created_at).created_at.strftime("%m/%d/%Y %l:%M %p")
+      events.max_by(&:created_at)
+    end
+  end
+
+  def last_contacted
+    if last_contacted_event
+      last_contacted_event.created_at.strftime("%m/%d/%Y %l:%M %p")
     end
   end
 end
