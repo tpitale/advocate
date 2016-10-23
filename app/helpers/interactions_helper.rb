@@ -4,7 +4,7 @@ module InteractionsHelper
   end
 
   def human_readable_text(text)
-    text.blank? ? "N/A" : text
+    text.blank? ? nil : text
   end
 
   def icon_class_for_interaction(interaction_type)

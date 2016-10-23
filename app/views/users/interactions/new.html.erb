@@ -1,6 +1,6 @@
-<%= form_for [:users, @interaction] do |f| %>
+<%= form_for [:users, @interaction], html: {class: "simple-form"} do |f| %>
   <%= f.label :phone, "Client Phone #" %>
   <%= f.text_field :phone %>
 
-  <%= f.submit "Create" %>
+  <%= f.submit "Create", class: "c-btn" %>
 <% end %>

@@ -2,13 +2,11 @@
 
   <div class="profile-top">
     <p class="name"><%= @client.name %></p>
-    <p class="top-field"><%= @client.formatted_birthdate %></p>
-    <p class="top-field"><%= human_readable_text(@client.gender) %> | <%= human_readable_text(@client.ethnicity) %></p>
     <p class="top-field"><%= @client.phone %></p>
-    <%= link_to "Edit Client", edit_users_interaction_client_path(@interaction, @client) %>
+    <p class="top-field"><%= @client.formatted_birthdate %></p>
+    <p class="top-field"><%= [human_readable_text(@client.gender), human_readable_text(@client.ethnicity)].compact.join(" | ") %></p>
+    <%= link_to "Edit Client", edit_users_client_path(@client) %>
   </div>
-
-
 
   <%= render "referral" %>
 
@@ -29,16 +27,16 @@
   </div>
 
   <div class="timeline-container active">
-    <div class="timeline-item">
+<!--     <div class="timeline-item">
       <%= link_to "#", class: "new-note-btn" do %>
         <i class="timeline-icon fa fa-plus "></i>
         <div class="timeline-text-container">
           <span class="timeline-main-text">Create A Note</span>
         </div>
       <% end %>
-    </div>
+    </div> -->
 
-    <%= render partial: "users/interactions/clients/activity_interaction", collection: @client.interactions, as: :activity_interaction %>
+    <%= render partial: "users/clients/activity_interaction", collection: @client.interactions, as: :activity_interaction %>
   </div>
 
 </div>
