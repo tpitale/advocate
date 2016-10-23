@@ -2,7 +2,7 @@
   <%= link_to users_interaction_path(interaction) do %>
     <% client = interaction.client %>
 
-  
+
     <div class='int-class-left'>
       <p class="client-name"><%= client.first_name || client.phone %></p>
       <% if event = interaction.latest_event %>
@@ -15,7 +15,7 @@
         <p class="interaction-data">
           <i class="fa fa-clock-o"></i>
           <span class="title">Last Contact:</span>
-          <%= interaction.created_at.to_s(:db) %>
+          <%= interaction.last_contact %>
         </p>
       <% end %>
     </div>
