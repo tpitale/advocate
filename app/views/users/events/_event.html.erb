@@ -10,8 +10,8 @@
     <%= event.content %>
   </div>
   <p class="incoming-msg-to">
-    Tony P.
-    <span class="provider-name">Provider</span>
+    <%= current_user.first_name %>
+    <span class="provider-name"></span>
     <%= event.created_at.strftime("%m/%d/%Y %l:%M %p") %>
   </p>
 <% end %>
