@@ -56,7 +56,7 @@ $(function() {
   channel.on("event", function(data) {
     console.log(data);
     var formattedDateTime = moment().format('M/D/Y h:m a');
-    $("#blank-slate").hide
+    $("#blank-slate").hide();
     $(".container-left .messages-container").prepend("<div class='text-bubble incoming'>" + data.content + "</div><p class='incoming-msg-from'>Client " + formattedDateTime + "</p>")
   });
 
