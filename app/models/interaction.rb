@@ -53,4 +53,11 @@ class Interaction < ActiveRecord::Base
   def resolved?
     !open?
   end
+
+  def last_contact
+    events = Event.where(interaction: self)
+    if events
+      events.max_by(&:created_at).created_at.strftime("%m/%d/%Y %l:%M %p")
+    end
+  end
 end
