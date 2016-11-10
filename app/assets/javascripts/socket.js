@@ -49,7 +49,7 @@ $(function() {
   // rename event2/3 based on the event name that we're broadcasting in bridge
   // https://hexdocs.pm/phoenix/Phoenix.Channel.html#broadcast!/3
   //
-  // https://github.com/tpitale/counselor-bridge/blob/master/web/channels/interactions_channel.ex#L55
+  // https://github.com/tpitale/advocate-bridge/blob/master/web/channels/interactions_channel.ex#L55
   // in our bridge above, "interactions:#{event.interaction_id}" is the socket,
   // "event" is event and payload is the message. so event2/event3
   // will change to the event in the bridge
