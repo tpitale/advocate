@@ -1,11 +1,13 @@
 build:
 	docker build -t advocate .
 
-tag: build
-	docker tag $(shell docker images advocate:latest -q) ${DOCKER_REGISTRY}/advocate
+tag:
+	docker tag advocate:latest ${DOCKER_REGISTRY}/advocate
 
-push: tag
+push:
 	docker push ${DOCKER_REGISTRY}/advocate
+
+release: build tag push
 
 run: build
 	docker run -it -p 3000:80 --env-file .env --rm --name advocate advocate
