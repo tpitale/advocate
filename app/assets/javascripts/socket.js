@@ -4,10 +4,10 @@ $(function() {
   var socket;
   // by default I think phoenix makes non secure websocket be at port 4000 and
   // secure websockets at port 4040
-  if (window.location.hostname === "localhost") {
-    socket = new Socket("ws://" + hostname + ":4000/socket", {params: {userToken: "123"}})
+  if (window.location.hostname === "advocate.dev") {
+    socket = new Socket("ws://bridge." + hostname + ":8080/socket", {params: {userToken: "123"}})
   } else {
-    socket = new Socket("wss://" + hostname + ":4040/socket", {params: {userToken: "123"}})
+    socket = new Socket("ws://bridge." + hostname + "/socket", {params: {userToken: "123"}})
   }
 
   socket.connect();
