@@ -4,9 +4,9 @@ class Client < ActiveRecord::Base
   has_many :interactions
 
   def self.with_phone(search)
-    normalized_phone = search.length == 10 ? "+1"+search : search
+    normalized_phone = search.to_s.length == 10 ? "+1"+search : search
 
-    where(phone: normalized_phone).first
+    where(phone: normalized_phone).first || new(phone: search.to_s)
   end
 
   def male?
