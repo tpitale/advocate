@@ -17,7 +17,7 @@ module Users
     def new
       client = Client.where(id: params[:client_id]).first
       if interaction = client.interactions.open.first
-        redirect_to users_interaction_url(interaction)
+        redirect_to users_interaction_path(interaction)
       else
         phone = client.phone if client
 
