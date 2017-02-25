@@ -26,5 +26,7 @@ EXPOSE 80
 
 ADD . /app
 
+VOLUME /app/public/assets
+
 # RAILS_ENV should be set in env_file or docker-compose.yml
 CMD foreman start -f Procfile.docker >> /app/log/foreman.log 2>&1
