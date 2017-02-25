@@ -16,9 +16,13 @@ module Users
 
     def new
       client = Client.where(id: params[:client_id]).first
-      phone = client.phone if client
+      if interaction = client.interactions.open.first
+        redirect_to users_interaction_url(interaction)
+      else
+        phone = client.phone if client
 
-      @interaction = Interaction.new(phone: phone)
+        @interaction = Interaction.new(phone: phone)
+      end
     end
 
     def create
