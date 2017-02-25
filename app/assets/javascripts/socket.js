@@ -1,13 +1,15 @@
 $(function() {
   var hostname = window.location.hostname;
 
+  var socket_params = {params: {userToken: "123"}};
   var socket;
-  // by default I think phoenix makes non secure websocket be at port 4000 and
-  // secure websockets at port 4040
-  if (window.location.hostname === "advocate.dev") {
-    socket = new Socket("ws://bridge." + hostname + ":8080/socket", {params: {userToken: "123"}})
-  } else {
-    socket = new Socket("ws://bridge." + hostname + "/socket", {params: {userToken: "123"}})
+
+  if (window.location.hostname === "localhost") { // docker local/mix phoenix.server
+    socket = new Socket("ws://" + hostname + ":3001/socket", socket_params)
+  } else if (window.location.hostname === "advocate.dev") { // docker local with nginx/compose
+    socket = new Socket("ws://bridge." + hostname + ":8080/socket", socket_params)
+  } else { // production
+    socket = new Socket("ws://bridge." + hostname + "/socket", socket_params)
   }
 
   socket.connect();

@@ -26,6 +26,8 @@ EXPOSE 80
 
 ADD . /app
 
+RUN bin/rake assets:precompile
+
 VOLUME /app/public/assets
 
 # RAILS_ENV should be set in env_file or docker-compose.yml
