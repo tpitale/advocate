@@ -5,7 +5,7 @@ default: &default
   username: <%= ENV['POSTGRES_USER'] || "postgres" %>
   host: <%= ENV['POSTGRES_HOST'] || "localhost" %>
 
-development:
+dev:
   <<: *default
   database: advocate_development
 
@@ -13,7 +13,7 @@ test:
   <<: *default
   database: advocate_test
 
-production:
+prod:
   <<: *default
   database: advocate_production
   password: <%= ENV['POSTGRES_PASSWORD'] %>

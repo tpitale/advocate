@@ -26,6 +26,9 @@ EXPOSE 80
 
 ADD . /app
 
+ARG BUILD_ENV=dev
+ENV RAILS_ENV=$BUILD_ENV
+
 RUN bin/rake assets:precompile
 
 VOLUME /app/public/assets
