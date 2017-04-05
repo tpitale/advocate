@@ -12,7 +12,7 @@ $(function() {
     socket = new Socket("ws://bridge." + hostname + "/socket", socket_params)
   }
 
-  socket.connect();
+  // socket.connect();
 
   socket.onOpen(function() {
     console.log("the connection is open!");
