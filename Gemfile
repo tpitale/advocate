@@ -22,13 +22,13 @@ gem 'twilio-ruby'
 
 gem 'puma'
 
-group :development, :test do
+group :dev, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'foreman'
 end
 
-group :development do
+group :dev do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  # gem 'web-console', '~> 2.0'
 end

@@ -23,6 +23,9 @@ module Advocate
 
     config.active_record.raise_in_transactional_callbacks = true
 
-    config.assets.paths << Rails.root.join("app", "assets", "components")
+    # Ignore LOOSE_APP_ASSETS to not load node_modules for 10 minutes
+    config.after_initialize do
+      config.assets.precompile = ["application.js", "application.scss"]
+    end
   end
 end

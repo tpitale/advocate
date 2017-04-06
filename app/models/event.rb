@@ -26,6 +26,8 @@ class Event < ActiveRecord::Base
   end
 
   def queue_for_outbound
+    return
+
     # send to twilio
     # HACK
     # Not resilient to Twilio outages

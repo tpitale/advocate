@@ -1,23 +1,23 @@
 <script type="text/javascript">
-  $(function() {
-    $("form.new_event input[type='submit']").click(function(e){
-      var replyBody = $("input#event_content").val();
-      if (0 === replyBody.length) {
-        e.preventDefault();
-        alert("You must enter a reply.")
-      }
-    })
+  // $(function() {
+  //   $("form.new_event input[type='submit']").click(function(e){
+  //     var replyBody = $("input#event_content").val();
+  //     if (0 === replyBody.length) {
+  //       e.preventDefault();
+  //       alert("You must enter a reply.")
+  //     }
+  //   })
 
-    $(".referral-send-container button.send-referral").click(function() {
-      var code = $(this).data("referral-code");
-      var service = $(this).data("service");
-      var name = $(this).data("name");
-      var location = $(this).data("location");
-      var phone = $(this).data("phone");
+  //   $(".referral-send-container button.send-referral").click(function() {
+  //     var code = $(this).data("referral-code");
+  //     var service = $(this).data("service");
+  //     var name = $(this).data("name");
+  //     var location = $(this).data("location");
+  //     var phone = $(this).data("phone");
 
-      $("input#event_content").val("You're set up at " + name + " (" + location + "). Please share code " + code + " when you arrive.");
-    })
-  })
+  //     $("input#event_content").val("You're set up at " + name + " (" + location + "). Please share code " + code + " when you arrive.");
+  //   })
+  // })
 </script>
 
 <div class="container-left">
