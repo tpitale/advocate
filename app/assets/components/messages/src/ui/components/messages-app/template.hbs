@@ -1,6 +1,12 @@
 <div class="messages-container">
+{{#if state.events_empty}}
   <div id="blank-slate">
     <h1>No messages for this interaction.</h1>
     <h2>Reply with your first message.</h2>
   </div>
+{{else}}
+  {{#each state.events key="@index" as |event|}}
+    <message-event @event={{event}}></message-event>
+  {{/each}}
+{{/if}}
 </div>
