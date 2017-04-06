@@ -57,6 +57,10 @@ class Interaction < ActiveRecord::Base
     !open?
   end
 
+  def resolve!
+    update_attribute(:status, "resolved")
+  end
+
   def last_contact
     events = Event.where(interaction: self)
     if events.any?

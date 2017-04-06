@@ -23,6 +23,10 @@ class Referral < ActiveRecord::Base
     status == "resolved"
   end
 
+  def resolve!
+    update_attribute(:status, "resolved") && interaction.resolve!
+  end
+
   def title
     "Client Referred to #{provider_name} for #{service_name}"
   end
