@@ -1,5 +1,6 @@
 //= require phoenix_socket
 //= require_self
+//= require messages/dist/app
 
 var ADVOCATE = ADVOCATE || {};
 
