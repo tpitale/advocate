@@ -1,6 +1,5 @@
 //= require phoenix_socket
 //= require_self
-//= require app
 
 var ADVOCATE = ADVOCATE || {};
 
