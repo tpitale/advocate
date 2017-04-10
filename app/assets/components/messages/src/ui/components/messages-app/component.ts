@@ -28,6 +28,11 @@ export default class Messages extends Component {
   }
 
   add_event(data) {
-    console.log(data);
+    let new_events = Array.of(data).concat(this.state.events);
+
+    this.state = {
+      events: new_events,
+      events_empty: (new_events.length <= 0)
+    };
   }
 }

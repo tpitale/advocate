@@ -13,6 +13,7 @@ ADVOCATE.document_ready = function(fn) {
 };
 
 ADVOCATE.subscribe = function(component) {
+  console.log("Subscribing component: ", component);
   var hostname = window.location.hostname;
 
   var socket_params = {params: {userToken: "123"}};
