@@ -12,6 +12,10 @@ ADVOCATE.document_ready = function(fn) {
   }
 };
 
+ADVOCATE.user_token = function() {
+  return document.getElementById('current_user_token').value || null;
+}
+
 ADVOCATE.subscribe = function(component, interaction_id = 0) {
   var hostname = window.location.hostname;
   var socket;
@@ -40,7 +44,7 @@ ADVOCATE.subscribe = function(component, interaction_id = 0) {
 
   var channel;
   var channel_name = "interactions";
-  var channel_params = {params: {userToken: "123"}};
+  var channel_params = {params: {token: ADVOCATE.user_token}};
 
   if (interaction_id > 0) {
     channel_name = [channel_name, interaction_id].join(":")
