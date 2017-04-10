@@ -34,7 +34,7 @@
   </div>
 
   <!-- <messages-app></messages-app> -->
-  <div id="messages-app" data-events="<%= @interaction.events.order("created_at DESC").to_json %>"></div>
+  <div id="messages-app" data-interaction-id="<%= @interaction.id %>" data-events="<%= @interaction.latest_events.to_json %>"></div>
 </div>
 
 <div class="container-right">

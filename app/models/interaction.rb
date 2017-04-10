@@ -42,7 +42,11 @@ class Interaction < ActiveRecord::Base
   end
 
   def latest_event
-    events.order(:created_at).first
+    latest_events.first
+  end
+
+  def latest_events
+    events.order("created_at DESC")
   end
 
   def type
