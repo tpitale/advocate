@@ -24,6 +24,8 @@ export default class Messages extends Component {
   }
 
   load_default_events() {
+    // this.element?
+    console.log(this.element);
     let default_events = JSON.parse(document.getElementById("messages-app").dataset.events);
 
     this.state = {

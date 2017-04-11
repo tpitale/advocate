@@ -2,6 +2,8 @@
 
 const GlimmerApp = require('@glimmer/application-pipeline').GlimmerApp;
 
+// TODO: what are the defaults here?
+
 module.exports = function(defaults) {
   let app = new GlimmerApp(defaults, {
     // Add options here

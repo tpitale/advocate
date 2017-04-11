@@ -1,2 +1,4 @@
 web: bin/rails s Puma
-messages-component: cd app/assets/components/messages && ember build -w -dev
+# webpack-build: bin/webpack-watcher
+webpack-serve: bin/webpack-dev-server
+# glimmer-build: cd app/assets/components/messages && ember build -w
