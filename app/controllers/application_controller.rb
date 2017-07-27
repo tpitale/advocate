@@ -7,5 +7,5 @@ class ApplicationController < ActionController::Base
   def logged_in?
     false
   end
-  helper_method :logged_in
+  helper_method :logged_in?
 end
