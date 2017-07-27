@@ -40,19 +40,3 @@
   </div>
 
 </div>
-
-<script>
-$(document).ready(function(){
- $('.selectize').selectize({
-    create          : false,
-    onItemAdd: function(value, $item) {
-      if(value == "Emergency Shelter" && $('#housing-gender-spec').length > 0){
-        $('#housing-gender-spec').removeClass('hidden')
-      }
-      else{
-        window.location.href = "/users/services?interaction_id=" + "<%=params['id'] %>" + "&service_name=" + value
-      }
-    }
-  })
-})
-</script>

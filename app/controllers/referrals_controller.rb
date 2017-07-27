@@ -4,9 +4,7 @@ class ReferralsController < ApplicationController
 
   def mark
     @referral = Referral.find_by_code(params[:referral_code])
-    if @referral
-      @referral.update_attribute(:status, "resolved")
-      @referral.interaction.update_attribute(:status, "resolved")
+    if @referral && @referral.resolve!
       redirect_to confirmed_referrals_path
     else
       redirect_to referrals_path(not_found: "t")
